@@ -1,0 +1,19 @@
+#app {
+  display: flex;
+}
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  padding: 5px;
+}
+
+#examples {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.component-example {
+  margin: 5px;
+}
