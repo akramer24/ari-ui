@@ -1,5 +1,12 @@
 import React from 'react';
 
+export const Calendar = [
+  {
+    title: 'Calendar',
+    props: {}
+  }
+]
+
 export const Card = [
   {
     title: 'Card with header and footer',
@@ -43,6 +50,12 @@ export const Input = [
     title: 'Regular input',
     props: {
       placeholder: 'Type here...'
+    }
+  },
+  {
+    title: 'Date input',
+    props: {
+      type: 'date'
     }
   }
 ]
