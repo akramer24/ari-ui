@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import classNames from 'classnames';
 import {
+  FaAngleLeft,
+  FaAngleDoubleLeft,
+  FaAngleRight,
+  FaAngleDoubleRight
+} from 'react-icons/fa';
+import {
   advanceOneMonth,
   retreatOneMonth,
   getFirstDayIndex,
@@ -24,9 +30,27 @@ const Calendar = () => {
   return (
     <div className="calendar-container">
       <div className="calendar-header">
-        <button onClick={() => retreatOneMonth(monthIdx, year, setMonthIdx, setYear)}>Prev</button>
+        <div className="calendar-navigation-container">
+          <FaAngleDoubleLeft
+            className="calendar-navigation-arrow"
+            onClick={() => setYear(year - 1)}
+          />
+          <FaAngleLeft
+            className="calendar-navigation-arrow"
+            onClick={() => retreatOneMonth(monthIdx, year, setMonthIdx, setYear)}
+          />
+        </div>
         <div className="calendar-header-month">{`${month} ${year}`}</div>
-        <button onClick={() => advanceOneMonth(monthIdx, year, setMonthIdx, setYear)}>Next</button>
+        <div className="calendar-navigation-container">
+          <FaAngleRight
+            className="calendar-navigation-arrow"
+            onClick={() => advanceOneMonth(monthIdx, year, setMonthIdx, setYear)}
+          />
+          <FaAngleDoubleRight
+            className="calendar-navigation-arrow"
+            onClick={() => setYear(year + 1)}
+          />
+        </div>
       </div>
       <div className="calendar-body">
         <div className="calendar-header-cell calendar-cell">Sun</div>
@@ -49,7 +73,12 @@ const Calendar = () => {
             return (
               <div
                 key={`${month}-${i}`}
-                className="calendar-cell-container"
+                className={classNames(
+                  'calendar-cell-container',
+                  {
+                    'calendar-cell-active': isDateInActiveMonth
+                  }
+                )}
               >
                 <div
                   className={classNames(

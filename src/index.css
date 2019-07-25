@@ -17,11 +17,25 @@
 .calendar-container {
   display: flex;
   flex-direction: column;
+  background-color: #000075;
+  color: #b0d8fd;
+  border-radius: 3px;
+  padding: 5px;
 }
 .calendar-header {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  font-size: 20px;
+  border-bottom: 1px solid;
+  padding-bottom: 5px;
+}
+.calendar-navigation-arrow {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.calendar-navigation-arrow:hover {
+  color: #a2a2a2;
 }
 .calendar-body {
   display: grid;
@@ -30,7 +44,21 @@
 }
 .calendar-cell-container {
   width: 100%;
-  text-align: center;
+  text-align: right;
+  border: 1px solid #a2a2a2;
+  height: 60px;
+  background-color: white;
+  color: #000075;
+}
+.calendar-cell-active {
+  transition: 0.3s;
+  cursor: pointer;
+}
+.calendar-cell-active:hover {
+  background-color: #b0d8fd;
+}
+.calendar-date-cell {
+  margin-right: 5px;
 }
 .calendar-date-cell-inactive {
   color: #a2a2a2;
