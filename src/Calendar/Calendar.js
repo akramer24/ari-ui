@@ -8,9 +8,8 @@ import {
   getTotalDaysInMonth,
   months
 } from './utils';
-import './Calendar.css';
 
-const Calendar = props => {
+const Calendar = () => {
   const [monthIdx, setMonthIdx] = useState(moment().month());
   const month = months[monthIdx];
   const [year, setYear] = useState(moment().year());
@@ -50,15 +49,19 @@ const Calendar = props => {
             return (
               <div
                 key={`${month}-${i}`}
-                className={classNames(
-                  'calendar-date-cell',
-                  'calendar-cell',
-                  {
-                    'calendar-date-cell-inactive': !isDateInActiveMonth
-                  }
-                )}
+                className="calendar-cell-container"
               >
-                {date}
+                <div
+                  className={classNames(
+                    'calendar-date-cell',
+                    'calendar-cell',
+                    {
+                      'calendar-date-cell-inactive': !isDateInActiveMonth
+                    }
+                  )}
+                >
+                  {date}
+                </div>
               </div>
             )
           })

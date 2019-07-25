@@ -5,6 +5,8 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "history": "^4.9.0",
+    "less": "^3.9.0",
+    "less-watch-compiler": "^1.13.0",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -12,10 +14,12 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts start & yarn run watch-css",
+    "build": "yarn build-css && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-css": "lessc src/index.less src/index.css",
+    "watch-css": "less-watch-compiler src src index.less"
   },
   "eslintConfig": {
     "extends": "react-app"
