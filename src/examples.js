@@ -2,15 +2,37 @@ import React from 'react';
 
 export const Button = [
   {
-    title: 'Button',
+    title: 'Default Button',
     props: {
       value: 'Click me!'
     }
   },
   {
-    title: 'Button 2',
+    title: 'Primary Button',
     props: {
       type: 'primary',
+      onClick() { console.log('primary button clicked') },
+      value: 'Click me!'
+    }
+  },
+  {
+    title: 'Danger Button',
+    props: {
+      type: 'danger',
+      value: 'Click me!'
+    }
+  },
+  {
+    title: 'Disabled Button',
+    props: {
+      disabled: true,
+      value: 'Click me!'
+    }
+  },
+  {
+    title: 'Round-edged Button',
+    props: {
+      edge: 'round',
       value: 'Click me!'
     }
   }

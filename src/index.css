@@ -20,17 +20,49 @@
   height: 30px;
   border-radius: 3px;
   outline: none;
+  padding: 4px 10px;
   cursor: pointer;
 }
 .ari-ui-btn:hover {
   box-shadow: 0px 0px 3px 1px #000075;
 }
+.ari-ui-btn:active {
+  animation-name: button-clicked;
+  animation-duration: 0.3s;
+}
 .ari-ui-btn-default {
   background-color: white;
+  color: #000075;
 }
 .ari-ui-btn-primary {
   background-color: #000075;
   color: #b0d8fd;
+}
+.ari-ui-btn-danger {
+  background-color: #bf0000;
+  color: #b0d8fd;
+}
+.ari-ui-btn-disabled {
+  background-color: #a2a2a2;
+  color: #e4e4e4;
+  cursor: not-allowed;
+}
+.ari-ui-btn-disabled:hover {
+  box-shadow: none;
+}
+.ari-ui-btn-rounded-edge {
+  border-radius: calc(30px / 2);
+}
+@keyframes button-clicked {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 .calendar-container {
   display: flex;

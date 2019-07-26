@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { omitBy, isUndefined } from 'lodash';
 
 const Button = ({
   className,
   disabled,
+  edge,
   id,
   onClick,
   type,
@@ -13,6 +15,7 @@ const Button = ({
   const passthroughToButton = omitBy({
     onClick,
   }, isUndefined);
+
   let typeClassName;
   switch (type) {
     case 'primary':
@@ -24,7 +27,6 @@ const Button = ({
     default:
       typeClassName = 'ari-ui-btn-default';
   }
-  console.log(typeClassName)
 
   return (
     <button
@@ -33,7 +35,9 @@ const Button = ({
         'ari-ui-btn',
         typeClassName,
         {
-          [className]: className
+          [className]: className,
+          'ari-ui-btn-disabled': disabled,
+          'ari-ui-btn-rounded-edge': edge === 'round'
         }
       )}
       id={id}
@@ -46,6 +50,39 @@ const Button = ({
 
 Button.defaultProps = {
   disabled: false,
+  edge: 'straight',
+  type: 'default'
+}
+
+Button.propTypes = {
+  /**
+   * CSS class(es) applied to Button.
+   */
+  className: PropTypes.string,
+  /**
+   * Determines whether or not Button is disabled.
+   */
+  disabled: PropTypes.bool,
+  /**
+   * Determines whether Button takes a straight or round edge.
+   */
+  edge: PropTypes.oneOf(['straight', 'round']),
+  /**
+   * CSS id applied to Button.
+   */
+  id: PropTypes.string,
+  /**
+   * Callback triggered by clicking Button.
+   */
+  onClick: PropTypes.func,
+  /**
+   * Button type.
+   */
+  type: PropTypes.oneOf(['default', 'primary', 'danger']),
+  /**
+   * Text inside Button.
+   */
+  value: PropTypes.string.isRequired
 }
 
 export default Button;

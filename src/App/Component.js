@@ -11,6 +11,7 @@ const Component = props => {
       {
         componentExamples && componentExamples.map(e => (
           <div key={e.title} className="component-example">
+            <div>{e.title}</div>
             <ComponentToRender {...e.props} />
           </div>
         ))
