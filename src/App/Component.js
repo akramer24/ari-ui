@@ -9,7 +9,7 @@ const Component = props => {
   return (
     <div id="examples">
       {
-        componentExamples.map(e => (
+        componentExamples && componentExamples.map(e => (
           <div key={e.title} className="component-example">
             <ComponentToRender {...e.props} />
           </div>

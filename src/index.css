@@ -14,6 +14,24 @@
 .component-example {
   margin: 5px;
 }
+.ari-ui-btn {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  height: 30px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+.ari-ui-btn:hover {
+  box-shadow: 0px 0px 3px 1px #000075;
+}
+.ari-ui-btn-default {
+  background-color: white;
+}
+.ari-ui-btn-primary {
+  background-color: #000075;
+  color: #b0d8fd;
+}
 .calendar-container {
   display: flex;
   flex-direction: column;
@@ -120,9 +138,55 @@
   color: #bf0000;
   z-index: 5;
 }
+.modal-container {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+.modal-overlay {
+  position: absolute;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  background: rgba(80, 80, 80, 0.4);
+}
+.modal-dialog {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  position: absolute;
+  z-index: 2000;
+  width: 80%;
+  height: 50%;
+  background: white;
+  box-shadow: 0px 0px 5px 1px #6b4e42;
+  border-radius: 10px;
+  padding: 10px;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-title {
+  font-size: 24px;
+}
+.modal-x {
+  transition: 0.3s;
+  color: #b1acac;
+}
+.modal-x:hover {
+  background-color: #a2a2a2;
+  border-radius: 10px;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

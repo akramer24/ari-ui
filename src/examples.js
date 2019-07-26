@@ -1,5 +1,21 @@
 import React from 'react';
 
+export const Button = [
+  {
+    title: 'Button',
+    props: {
+      value: 'Click me!'
+    }
+  },
+  {
+    title: 'Button 2',
+    props: {
+      type: 'primary',
+      value: 'Click me!'
+    }
+  }
+]
+
 export const Calendar = [
   {
     title: 'Calendar',
