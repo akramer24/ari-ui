@@ -57,6 +57,9 @@
 .calendar-cell-active:hover {
   background-color: #b0d8fd;
 }
+.calendar-cell-selected {
+  background: #b0d8fd;
+}
 .calendar-date-cell {
   margin-right: 5px;
 }

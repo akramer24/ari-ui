@@ -3,7 +3,15 @@ import React from 'react';
 export const Calendar = [
   {
     title: 'Calendar',
-    props: {}
+    props: {
+      onSelect(date) {
+        console.log('date', date);
+      },
+      onPanelChange(month, year) {
+        console.log('month', month);
+        console.log('year', year);
+      }
+    }
   }
 ]
 
