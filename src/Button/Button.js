@@ -10,10 +10,12 @@ const Button = ({
   edge,
   id,
   onClick,
+  style,
   type,
 }) => {
   const passthroughToButton = omitBy({
     onClick,
+    style
   }, isUndefined);
 
   let typeClassName;
@@ -79,6 +81,10 @@ Button.propTypes = {
    * Callback triggered by clicking Button.
    */
   onClick: PropTypes.func,
+  /**
+   * CSS styling applied to Button.
+   */
+  style: PropTypes.object,
   /**
    * Button type.
    */

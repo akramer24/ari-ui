@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FaTimes } from 'react-icons/fa';
+import Divider from '../Divider/Divider';
 
 class Modal extends Component {
   static defaultProps = {
-    clickMaskToClose: false
+    clickMaskToClose: false,
+    closeable: true,
+    footer: null
   }
 
   constructor(props) {
@@ -26,6 +29,8 @@ class Modal extends Component {
       children,
       className,
       clickMaskToClose,
+      closeable,
+      footer,
       id,
       onClose,
       title,
@@ -39,11 +44,23 @@ class Modal extends Component {
           <div className="modal-dialog">
             <div className={classNames('modal', { [className]: className })} id={id}>
               <div className="modal-header">
-                <span className="modal-title">{title}</span>
-                <FaTimes className="modal-x" onClick={onClose} />
+                <span className="modal-title">{title && title}</span>
+                {closeable && <FaTimes className="modal-x" onClick={onClose} />}
               </div>
-              <div className="divider" />
-              {children}
+              {title && <Divider />}
+              <div className="modal-content">
+                {children}
+              </div>
+              {footer && <Divider />}
+              {
+                footer
+                  ? (
+                    <div className="modal-footer">
+                      {footer}
+                    </div>
+                  )
+                  : null
+              }
             </div>
           </div>
         </div>,
@@ -63,6 +80,14 @@ Modal.propTypes = {
    * Determines whether or not clicking the mask closes Modal.
    */
   clickMaskToClose: PropTypes.bool,
+  /**
+   * Determines whether or not close "x" appears in top-right corner.
+   */
+  closeable: PropTypes.bool,
+  /**
+   * Modal footer content.
+   */
+  footer: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /**
    * CSS id applied to Modal.
    */

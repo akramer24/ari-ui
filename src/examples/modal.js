@@ -7,7 +7,17 @@ const ModalExample = props => {
 
   return (
     <div>
-      <Modal onClose={onClose} visible={visible}>
+      <Modal
+        footer={
+          <div className="flow-right">
+            <Button style={{ marginRight: 5 }} type="danger">Cancel</Button>
+            <Button type="primary">Save</Button>
+          </div>
+        }
+        onClose={onClose}
+        title="Example modal"
+        visible={visible}
+      >
         <div>Hi, I am a modal</div>
       </Modal>
       <Button onClick={() => setVisible(true)}>Show modal</Button>

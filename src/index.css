@@ -196,6 +196,8 @@
   align-items: center;
 }
 .modal {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   z-index: 2000;
   width: 80vw;
@@ -203,7 +205,6 @@
   background: white;
   box-shadow: 0px 0px 5px 1px #6b4e42;
   border-radius: 10px;
-  padding: 10px;
   animation-name: modal-appear;
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
@@ -212,6 +213,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 20px 10px 20px;
 }
 .modal-title {
   font-size: 24px;
@@ -223,6 +225,13 @@
 .modal-x:hover {
   background-color: #a2a2a2;
   border-radius: 10px;
+}
+.modal-content {
+  padding: 10px 20px 10px 20px;
+  flex: 1;
+}
+.modal-footer {
+  padding: 10px 20px 10px 20px;
 }
 @keyframes modal-appear {
   0% {
@@ -243,4 +252,11 @@ body {
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.padded-content {
+  padding: 10px 20px 10px 20px;
+}
+.flow-right {
+  display: flex;
+  justify-content: flex-end;
 }
