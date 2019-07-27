@@ -4,13 +4,13 @@ import classNames from 'classnames';
 import { omitBy, isUndefined } from 'lodash';
 
 const Button = ({
+  children,
   className,
   disabled,
   edge,
   id,
   onClick,
   type,
-  value
 }) => {
   const passthroughToButton = omitBy({
     onClick,
@@ -43,7 +43,7 @@ const Button = ({
       id={id}
       disabled={disabled}
     >
-      {value}
+      {children}
     </button>
   )
 }
@@ -55,6 +55,10 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
+  /**
+   * Content inside Button.
+   */
+  children: PropTypes.string.isRequired,
   /**
    * CSS class(es) applied to Button.
    */
@@ -79,10 +83,6 @@ Button.propTypes = {
    * Button type.
    */
   type: PropTypes.oneOf(['default', 'primary', 'danger']),
-  /**
-   * Text inside Button.
-   */
-  value: PropTypes.string.isRequired
 }
 
 export default Button;

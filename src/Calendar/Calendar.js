@@ -17,7 +17,7 @@ import {
   months
 } from './utils';
 
-const Calendar = ({ onPanelChange, onSelect }) => {
+const Calendar = ({ maxWidth, onPanelChange, onSelect }) => {
   const [monthIdx, setMonthIdx] = useState(moment().month());
   const month = months[monthIdx];
   const [year, setYear] = useState(moment().year());
@@ -32,7 +32,7 @@ const Calendar = ({ onPanelChange, onSelect }) => {
   const [selectedDateIndex, setSelectedDateIndex] = useState(moment().date() + firstDayIndex - 1);
 
   return (
-    <div className="calendar-container">
+    <div className="calendar-container" style={{ maxWidth }}>
       <div className="calendar-header">
         <div className="calendar-navigation-container">
           <FaAngleDoubleLeft
@@ -107,6 +107,10 @@ const Calendar = ({ onPanelChange, onSelect }) => {
 }
 
 Calendar.propTypes = {
+  /**
+   * Calendar will grow to width of its parent. Set maxWidth if you do not want this behavior.
+   */
+  maxWidth: PropTypes.number,
   /**
    * Callback triggered by changing either the month or year.
    * 

@@ -10,8 +10,12 @@
 #examples {
   display: flex;
   flex-wrap: wrap;
+  flex: 1;
 }
 .component-example {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   margin: 5px;
 }
 .ari-ui-btn {
@@ -22,6 +26,7 @@
   outline: none;
   padding: 4px 10px;
   cursor: pointer;
+  transition: 0.3s;
 }
 .ari-ui-btn:hover {
   box-shadow: 0px 0px 3px 1px #000075;
@@ -89,7 +94,7 @@
 }
 .calendar-body {
   display: grid;
-  grid-template-columns: repeat(7, 60px);
+  grid-template-columns: repeat(7, minmax(40px, 5fr));
   justify-items: center;
 }
 .calendar-cell-container {
@@ -193,12 +198,15 @@
 .modal {
   position: absolute;
   z-index: 2000;
-  width: 80%;
-  height: 50%;
+  width: 80vw;
+  height: 50vh;
   background: white;
   box-shadow: 0px 0px 5px 1px #6b4e42;
   border-radius: 10px;
   padding: 10px;
+  animation-name: modal-appear;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
 }
 .modal-header {
   display: flex;
@@ -215,6 +223,17 @@
 .modal-x:hover {
   background-color: #a2a2a2;
   border-radius: 10px;
+}
+@keyframes modal-appear {
+  0% {
+    transform: translateY(-50vh);
+  }
+  40% {
+    transform: translateY(10vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
 }
 body {
   margin: 0;

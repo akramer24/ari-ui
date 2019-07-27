@@ -1,10 +1,12 @@
 import React from 'react';
+import { Button as AriButton } from './components';
+import ModalExample from './examples/modal';
 
 export const Button = [
   {
     title: 'Default Button',
     props: {
-      value: 'Click me!'
+      children: 'Click me!'
     }
   },
   {
@@ -12,28 +14,28 @@ export const Button = [
     props: {
       type: 'primary',
       onClick() { console.log('primary button clicked') },
-      value: 'Click me!'
+      children: 'Click me!'
     }
   },
   {
     title: 'Danger Button',
     props: {
       type: 'danger',
-      value: 'Click me!'
+      children: 'Click me!'
     }
   },
   {
     title: 'Disabled Button',
     props: {
       disabled: true,
-      value: 'Click me!'
+      children: 'Click me!'
     }
   },
   {
     title: 'Round-edged Button',
     props: {
       edge: 'round',
-      value: 'Click me!'
+      children: 'Click me!'
     }
   }
 ]
@@ -59,7 +61,7 @@ export const Card = [
     props: {
       children: <div>Hi</div>,
       header: <div>Header</div>,
-      footer: <button>click</button>
+      footer: <AriButton>click</AriButton>
     }
   },
   {
@@ -75,6 +77,12 @@ export const Card = [
       children: <img src="https://miro.medium.com/max/1200/1*9FSCAlNo0nDS6jZLueqewQ.png" alt="groucho" height={200} width={300} />,
       footer: <div>With image.</div>,
       padded: false
+    }
+  },
+  {
+    title: 'Modal launching card',
+    props: {
+      children: <ModalExample />
     }
   }
 ]
