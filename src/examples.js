@@ -101,24 +101,30 @@ export const Divider = [
 
 export const Form = [
   {
-    title: 'Form',
+    title: 'Form with columns',
     props: {
-      content: [[< AriInput placeholder="group 1" />, <AriInput placeholder="group 1" />, < AriInput placeholder="group 1" />, <AriInput placeholder="group 1" />], [<AriInput placeholder="group 2" />, <AriInput placeholder="group 2" />, <AriInput placeholder="group 2" />, <AriInput placeholder="group 2" />]]
+      content: [[< AriInput label="col 1 input 1" />, <AriInput label="col 1 input 2" />, < AriInput label="col 1 input 3" />, <AriInput label="col 1 input 4" />], [<AriInput label="col 2 input 1" />, <AriInput label="col 2 input 2" />, <AriInput label="col 2 input 3" />, <AriInput label="col 2 input 4" />]]
+    }
+  },
+  {
+    title: 'Form with rows',
+    props: {
+      content: [[< AriInput labelPosition="left" label="row 1 input 1" />, <AriInput labelPosition="left" label="row 1 input 2" />, < AriInput labelPosition="left" label="row 1 input 3" />, <AriInput labelPosition="left" label="row 1 input 4" />], [<AriInput labelPosition="left" label="row 2 input 1" />, <AriInput labelPosition="left" label="row 2 input 2" />, <AriInput labelPosition="left" label="row 2 input 3" />, <AriInput labelPosition="left" label="row 2 input 4" />]]
     }
   }
 ]
 
 export const Input = [
   {
-    title: 'Regular input',
     props: {
-      placeholder: 'Type here...'
+      placeholder: 'Type here...',
+      label: 'Input 1',
+      labelPosition: 'left'
     }
   },
   {
-    title: 'Date input',
     props: {
-      type: 'date'
+      label: 'Input 2',
     }
   }
 ]

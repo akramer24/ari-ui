@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import withForm from '../hocs/withForm';
 
 const Input = ({
   className,
@@ -86,4 +87,4 @@ Input.propTypes = {
   value: PropTypes.string,
 }
 
-export default Input;
+export default withForm(Input);

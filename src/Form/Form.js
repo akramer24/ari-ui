@@ -36,7 +36,7 @@ const Form = ({
 }
 
 Form.defaultProps = {
-  columnWidth: 200,
+  columnWidth: 250,
   content: [],
   direction: 'columns'
 }

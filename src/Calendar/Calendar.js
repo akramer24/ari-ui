@@ -116,8 +116,8 @@ const Calendar = ({ maxWidth, onPanelChange, onSelect }) => {
         visible={isModalVisible}
       >
         <Form content={[[
-          <Input placeholder="Name" />,
-          <Input placeholder="Time" />
+          <Input labelPosition="left" label="Event" />,
+          <Input labelPosition="left" label="Time" />
         ]]} />
       </Modal>
     </React.Fragment>
