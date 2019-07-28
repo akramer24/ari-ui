@@ -17,7 +17,7 @@ const Input = ({
   return (
     <div
       className={classNames(
-        'ari-uiinput-container',
+        'ari-ui-input-container',
         {
           [className]: className
         }

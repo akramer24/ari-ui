@@ -9,6 +9,7 @@ const Button = ({
   disabled,
   edge,
   id,
+  kind,
   onClick,
   style,
   type,
@@ -18,16 +19,16 @@ const Button = ({
     style
   }, isUndefined);
 
-  let typeClassName;
-  switch (type) {
+  let kindClassName;
+  switch (kind) {
     case 'primary':
-      typeClassName = 'ari-ui-btn-primary';
+      kindClassName = 'ari-ui-btn-primary';
       break;
     case 'danger':
-      typeClassName = 'ari-ui-btn-danger';
+      kindClassName = 'ari-ui-btn-danger';
       break;
     default:
-      typeClassName = 'ari-ui-btn-default';
+      kindClassName = 'ari-ui-btn-default';
   }
 
   return (
@@ -35,7 +36,7 @@ const Button = ({
       {...passthroughToButton}
       className={classNames(
         'ari-ui-btn',
-        typeClassName,
+        kindClassName,
         {
           [className]: className,
           'ari-ui-btn-disabled': disabled,
@@ -44,6 +45,7 @@ const Button = ({
       )}
       id={id}
       disabled={disabled}
+      type={type}
     >
       {children}
     </button>
@@ -53,7 +55,8 @@ const Button = ({
 Button.defaultProps = {
   disabled: false,
   edge: 'straight',
-  type: 'default'
+  kind: 'default',
+  type: 'button'
 }
 
 Button.propTypes = {
@@ -78,6 +81,10 @@ Button.propTypes = {
    */
   id: PropTypes.string,
   /**
+   * Button kind.
+   */
+  kind: PropTypes.oneOf(['default', 'primary', 'danger']),
+  /**
    * Callback triggered by clicking Button.
    */
   onClick: PropTypes.func,
@@ -88,7 +95,7 @@ Button.propTypes = {
   /**
    * Button type.
    */
-  type: PropTypes.oneOf(['default', 'primary', 'danger']),
+  type: PropTypes.oneOf(['button', 'submit', 'reset'])
 }
 
 export default Button;

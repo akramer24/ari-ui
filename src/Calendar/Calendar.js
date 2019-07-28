@@ -16,6 +16,9 @@ import {
   handleDateSelect,
   months
 } from './utils';
+import Button from '../Button/Button';
+import Form from '../Form/Form';
+import Input from '../Input/Input';
 import Modal from '../Modal/Modal';
 
 const Calendar = ({ maxWidth, onPanelChange, onSelect }) => {
@@ -107,11 +110,15 @@ const Calendar = ({ maxWidth, onPanelChange, onSelect }) => {
         </div>
       </div>
       <Modal
+        footer={<div className="flow-right"><Button kind="primary">Add event</Button></div>}
         onClose={() => setIsModalVisible(false)}
         title={selectedDate.format('MMMM D[,] YYYY')}
         visible={isModalVisible}
       >
-        <div>do something</div>
+        <Form content={[[
+          <Input placeholder="Name" />,
+          <Input placeholder="Time" />
+        ]]} />
       </Modal>
     </React.Fragment>
   )

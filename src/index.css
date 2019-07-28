@@ -143,6 +143,22 @@
   width: 100%;
   height: 1px;
 }
+.ari-ui-form {
+  display: flex;
+}
+.ari-ui-form-rows {
+  flex-direction: column;
+}
+.ari-ui-form-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.ari-ui-form-columns {
+  flex-wrap: wrap;
+}
+.ari-ui-form-column {
+  margin-right: 16px;
+}
 .ari-ui-input-container {
   display: flex;
   flex-grow: 1;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button as AriButton } from './components';
+import { Button as AriButton, Input as AriInput } from './components';
 import ModalExample from './examples/modal';
 
 export const Button = [
@@ -12,7 +12,7 @@ export const Button = [
   {
     title: 'Primary Button',
     props: {
-      type: 'primary',
+      kind: 'primary',
       onClick() { console.log('primary button clicked') },
       children: 'Click me!'
     }
@@ -20,7 +20,7 @@ export const Button = [
   {
     title: 'Danger Button',
     props: {
-      type: 'danger',
+      kind: 'danger',
       children: 'Click me!'
     }
   },
@@ -95,6 +95,15 @@ export const Divider = [
     title: 'Vertical Divider',
     props: {
       alignment: 'vertical'
+    }
+  }
+]
+
+export const Form = [
+  {
+    title: 'Form',
+    props: {
+      content: [[< AriInput placeholder="group 1" />, <AriInput placeholder="group 1" />, < AriInput placeholder="group 1" />, <AriInput placeholder="group 1" />], [<AriInput placeholder="group 2" />, <AriInput placeholder="group 2" />, <AriInput placeholder="group 2" />, <AriInput placeholder="group 2" />]]
     }
   }
 ]
