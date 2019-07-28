@@ -16,6 +16,7 @@ import {
   handleDateSelect,
   months
 } from './utils';
+import Modal from '../Modal/Modal';
 
 const Calendar = ({ maxWidth, onPanelChange, onSelect }) => {
   const [monthIdx, setMonthIdx] = useState(moment().month());
@@ -30,79 +31,89 @@ const Calendar = ({ maxWidth, onPanelChange, onSelect }) => {
   const totalDaysInPreviousMonthArr = Array(totalDaysInPreviousMonth).fill().map((_, idx) => 1 + idx).slice(-firstDayIndex);
   const [selectedDate, setSelectedDate] = useState(moment());
   const [selectedDateIndex, setSelectedDateIndex] = useState(moment().date() + firstDayIndex - 1);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
-    <div className="calendar-container" style={{ maxWidth }}>
-      <div className="calendar-header">
-        <div className="calendar-navigation-container">
-          <FaAngleDoubleLeft
-            className="calendar-navigation-arrow"
-            onClick={() => changeYear(monthIdx, year, setYear, 'retreat', onPanelChange)}
-          />
-          <FaAngleLeft
-            className="calendar-navigation-arrow"
-            onClick={() => changeMonth(monthIdx, year, setMonthIdx, setYear, 'retreat', onPanelChange)}
-          />
+    <React.Fragment>
+      <div className="calendar-container" style={{ maxWidth }}>
+        <div className="calendar-header">
+          <div className="calendar-navigation-container">
+            <FaAngleDoubleLeft
+              className="calendar-navigation-arrow"
+              onClick={() => changeYear(monthIdx, year, setYear, 'retreat', onPanelChange)}
+            />
+            <FaAngleLeft
+              className="calendar-navigation-arrow"
+              onClick={() => changeMonth(monthIdx, year, setMonthIdx, setYear, 'retreat', onPanelChange)}
+            />
+          </div>
+          <div className="calendar-header-month">{`${month} ${year}`}</div>
+          <div className="calendar-navigation-container">
+            <FaAngleRight
+              className="calendar-navigation-arrow"
+              onClick={() => changeMonth(monthIdx, year, setMonthIdx, setYear, 'advance', onPanelChange)}
+            />
+            <FaAngleDoubleRight
+              className="calendar-navigation-arrow"
+              onClick={() => changeYear(monthIdx, year, setYear, 'advance', onPanelChange)}
+            />
+          </div>
         </div>
-        <div className="calendar-header-month">{`${month} ${year}`}</div>
-        <div className="calendar-navigation-container">
-          <FaAngleRight
-            className="calendar-navigation-arrow"
-            onClick={() => changeMonth(monthIdx, year, setMonthIdx, setYear, 'advance', onPanelChange)}
-          />
-          <FaAngleDoubleRight
-            className="calendar-navigation-arrow"
-            onClick={() => changeYear(monthIdx, year, setYear, 'advance', onPanelChange)}
-          />
-        </div>
-      </div>
-      <div className="calendar-body">
-        <div className="calendar-header-cell calendar-cell">Sun</div>
-        <div className="calendar-header-cell calendar-cell">Mon</div>
-        <div className="calendar-header-cell calendar-cell">Tue</div>
-        <div className="calendar-header-cell calendar-cell">Wed</div>
-        <div className="calendar-header-cell calendar-cell">Thu</div>
-        <div className="calendar-header-cell calendar-cell">Fri</div>
-        <div className="calendar-header-cell calendar-cell">Sat</div>
-        {
-          [...Array(42).keys()].map(i => {
-            const isDateInActiveMonth = i >= firstDayIndex && i < firstDayIndex + totalDaysInMonth;
-            const date =
-              isDateInActiveMonth
-                ? totalDaysArr[i - firstDayIndex]
-                : i >= firstDayIndex + totalDaysInMonth
-                  ? nextMonthDaysArr[i - firstDayIndex - totalDaysInMonth]
-                  : totalDaysInPreviousMonthArr[i]
+        <div className="calendar-body">
+          <div className="calendar-header-cell calendar-cell">Sun</div>
+          <div className="calendar-header-cell calendar-cell">Mon</div>
+          <div className="calendar-header-cell calendar-cell">Tue</div>
+          <div className="calendar-header-cell calendar-cell">Wed</div>
+          <div className="calendar-header-cell calendar-cell">Thu</div>
+          <div className="calendar-header-cell calendar-cell">Fri</div>
+          <div className="calendar-header-cell calendar-cell">Sat</div>
+          {
+            [...Array(42).keys()].map(i => {
+              const isDateInActiveMonth = i >= firstDayIndex && i < firstDayIndex + totalDaysInMonth;
+              const date =
+                isDateInActiveMonth
+                  ? totalDaysArr[i - firstDayIndex]
+                  : i >= firstDayIndex + totalDaysInMonth
+                    ? nextMonthDaysArr[i - firstDayIndex - totalDaysInMonth]
+                    : totalDaysInPreviousMonthArr[i]
 
-            return (
-              <div
-                key={`${month}-${i}`}
-                className={classNames(
-                  'calendar-cell-container',
-                  {
-                    'calendar-cell-active': isDateInActiveMonth,
-                    'calendar-cell-selected': i === selectedDateIndex && selectedDate.month() === monthIdx
-                  }
-                )}
-                onClick={() => handleDateSelect(date, month, year, i, setSelectedDate, setSelectedDateIndex, onSelect)}
-              >
+              return (
                 <div
+                  key={`${month}-${i}`}
                   className={classNames(
-                    'calendar-date-cell',
-                    'calendar-cell',
+                    'calendar-cell-container',
                     {
-                      'calendar-date-cell-inactive': !isDateInActiveMonth
+                      'calendar-cell-active': isDateInActiveMonth,
+                      'calendar-cell-selected': i === selectedDateIndex && selectedDate.month() === monthIdx
                     }
                   )}
+                  onClick={() => handleDateSelect(date, month, year, i, setSelectedDate, setSelectedDateIndex, setIsModalVisible)}
                 >
-                  {date}
+                  <div
+                    className={classNames(
+                      'calendar-date-cell',
+                      'calendar-cell',
+                      {
+                        'calendar-date-cell-inactive': !isDateInActiveMonth
+                      }
+                    )}
+                  >
+                    {date}
+                  </div>
                 </div>
-              </div>
-            )
-          })
-        }
+              )
+            })
+          }
+        </div>
       </div>
-    </div>
+      <Modal
+        onClose={() => setIsModalVisible(false)}
+        title={selectedDate.format('MMMM D[,] YYYY')}
+        visible={isModalVisible}
+      >
+        <div>do something</div>
+      </Modal>
+    </React.Fragment>
   )
 }
 

@@ -56,10 +56,10 @@ export const changeYear = (monthIdx, year, setYear, advanceOrRetreat, onPanelCha
   onPanelChange && onPanelChange(monthIdx, newYear);
 }
 
-export const handleDateSelect = (date, month, year, selectedDateIndex, setSelectedDate, setSelectedDateIndex, onSelect) => {
+export const handleDateSelect = (date, month, year, selectedDateIndex, setSelectedDate, setSelectedDateIndex, setIsModalVisible) => {
   const jsDate = new Date(`${month} ${date}, ${year}`);
   const selectedDate = moment(jsDate);
   setSelectedDate(selectedDate);
   setSelectedDateIndex(selectedDateIndex);
-  onSelect && onSelect(selectedDate);
+  setIsModalVisible(true);
 }

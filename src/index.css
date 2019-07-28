@@ -11,6 +11,7 @@
   display: flex;
   flex-wrap: wrap;
   flex: 1;
+  height: 100vh;
 }
 .component-example {
   display: flex;
