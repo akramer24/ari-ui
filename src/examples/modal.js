@@ -10,8 +10,8 @@ const ModalExample = props => {
       <Modal
         footer={
           <div className="flow-right">
-            <Button style={{ marginRight: 5 }} type="danger">Cancel</Button>
-            <Button type="primary">Save</Button>
+            <Button style={{ marginRight: 5 }} kind="danger">Cancel</Button>
+            <Button kind="primary">Save</Button>
           </div>
         }
         onClose={onClose}
