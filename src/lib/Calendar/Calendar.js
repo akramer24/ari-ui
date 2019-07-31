@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import classNames from 'classnames';
@@ -9,6 +9,7 @@ import {
   FaAngleDoubleRight
 } from 'react-icons/fa';
 import {
+  addEvent,
   changeMonth,
   changeYear,
   getFirstDayIndex,
@@ -20,8 +21,13 @@ import Button from '../Button/Button';
 import Form from '../Form/Form';
 import Input from '../Input/Input';
 import Modal from '../Modal/Modal';
+import TextArea from '../TextArea/TextArea';
 
-const Calendar = ({ maxWidth, onPanelChange, onSelect }) => {
+// Events
+// {date: []}
+
+const Calendar = (props) => {
+  const { maxWidth, onPanelChange } = props;
   const [monthIdx, setMonthIdx] = useState(moment().month());
   const month = months[monthIdx];
   const [year, setYear] = useState(moment().year());
@@ -35,6 +41,7 @@ const Calendar = ({ maxWidth, onPanelChange, onSelect }) => {
   const [selectedDate, setSelectedDate] = useState(moment());
   const [selectedDateIndex, setSelectedDateIndex] = useState(moment().date() + firstDayIndex - 1);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [events, setEvents] = useState(props.events);
 
   return (
     <React.Fragment>
@@ -110,18 +117,36 @@ const Calendar = ({ maxWidth, onPanelChange, onSelect }) => {
         </div>
       </div>
       <Modal
-        footer={<div className="flow-right"><Button kind="primary">Add event</Button></div>}
         onClose={() => setIsModalVisible(false)}
         title={selectedDate.format('MMMM D[,] YYYY')}
         visible={isModalVisible}
+        width={400}
       >
-        <Form content={[[
-          <Input labelPosition="left" label="Event" />,
-          <Input labelPosition="left" label="Time" />
-        ]]} />
+        <Form
+          columnWidth={null}
+          content={[[
+            <Input name="event" labelPosition="left" label="Event" />,
+            <Input name="time" labelPosition="left" label="Time" />,
+            <TextArea
+              name="description"
+              labelPosition="top"
+              label="Description"
+              resizable={false}
+              rows={7}
+              style={{ height: 100 }}
+              type="text"
+            />,
+            <Button kind="primary" type="submit">Add event</Button>
+          ]]}
+          onSubmit={evt => addEvent(evt, selectedDate, events, setEvents, setIsModalVisible)}
+        />
       </Modal>
     </React.Fragment>
   )
+}
+
+Calendar.defaultProps = {
+  events: {}
 }
 
 Calendar.propTypes = {

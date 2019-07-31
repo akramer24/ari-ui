@@ -63,3 +63,13 @@ export const handleDateSelect = (date, month, year, selectedDateIndex, setSelect
   setSelectedDateIndex(selectedDateIndex);
   setIsModalVisible(true);
 }
+
+export const addEvent = (evt, date, events, setEvents, setIsModalVisible) => {
+  const eventInfo = { event: evt.target.event.value, time: evt.target.time.value, description: evt.target.description.value };
+  if (events[date]) {
+    setEvents({ ...events, [events[date]]: [...events[date], eventInfo] });
+  } else {
+    setEvents({ ...events, [events[date]]: [eventInfo] });
+  }
+  setIsModalVisible(false);
+}

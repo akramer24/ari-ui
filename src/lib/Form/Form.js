@@ -8,6 +8,12 @@ const Form = ({
   direction,
   onSubmit
 }) => {
+  const handleSubmit = evt => {
+    evt.stopPropagation();
+    evt.preventDefault();
+    onSubmit && onSubmit(evt);
+  }
+
   return (
     <form
       className={classNames(
@@ -17,17 +23,25 @@ const Form = ({
           'ari-ui-form-rows': direction === 'rows'
         }
       )}
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
     >
-      {content.map(group => {
+      {content.map((group, idx) => {
         return (
           <div
             className={classNames({
-              'ari-ui-form-row': direction === 'rows', 'ari-ui-form-column': direction === 'columns'
+              'ari-ui-form-row': direction === 'rows', 'ari-ui-form-column': direction === 'columns',
+              'ari-ui-form-last-column': direction === 'columns' && idx === content.length - 1
             })}
             key={uniqid()}
           >
-            {group.map(el => React.cloneElement(el, { ...el.props, key: uniqid(), style: { maxWidth: columnWidth, width: columnWidth, marginRight: 16 } }))}
+            {group.map(el => React.cloneElement(
+              el,
+              {
+                ...el.props,
+                key: uniqid(),
+                style: { maxWidth: columnWidth, width: columnWidth }
+              }
+            ))}
           </div>
         )
       })}

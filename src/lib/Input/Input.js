@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import withForm from '../hocs/withForm';
+import withForm from '../../hocs/withForm';
 
 const Input = ({
   className,
@@ -27,7 +27,7 @@ const Input = ({
       style={style}
     >
       <input
-        autoComplete="do-not"
+        autoComplete="off"
         className={classNames('ari-ui-input', { 'input-field-error': error })}
         name={name}
         onChange={onChange}

@@ -1,0 +1,19 @@
+.ari-ui-text-area-container {
+  display: flex;
+}
+
+.ari-ui-text-area {
+  .text-box();
+  border-radius: 15px 15px 0px 15px;
+  padding-top: @text-box-padding;
+  flex: 1;
+}
+
+.ari-ui-text-area:focus {
+  .text-box-focused();
+}
+
+.ari-ui-text-area-no-resize {
+  resize: none;
+  border-radius: 15px;
+}

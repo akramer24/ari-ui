@@ -146,6 +146,9 @@
 .ari-ui-form {
   display: flex;
 }
+.ari-ui-form .ari-ui-form-item {
+  margin-right: 0px;
+}
 .ari-ui-form-rows {
   flex-direction: column;
 }
@@ -158,6 +161,10 @@
 }
 .ari-ui-form-column {
   margin-right: 16px;
+  flex: 1;
+}
+.ari-ui-form-last-column {
+  margin-right: 0px;
 }
 .ari-ui-input-container {
   display: flex;
@@ -166,12 +173,12 @@
   position: relative;
 }
 .ari-ui-input {
-  flex-grow: 1;
-  border-radius: 15px;
   border: 1px solid #000075;
   font-size: 14px;
   padding-left: 12px;
   transition: 0.3s;
+  flex-grow: 1;
+  border-radius: 15px;
 }
 .ari-ui-input:focus {
   outline: none;
@@ -260,6 +267,27 @@
     transform: translateY(0vh);
   }
 }
+.ari-ui-text-area-container {
+  display: flex;
+}
+.ari-ui-text-area {
+  border: 1px solid #000075;
+  font-size: 14px;
+  padding-left: 12px;
+  transition: 0.3s;
+  border-radius: 15px 15px 0px 15px;
+  padding-top: 12px;
+  flex: 1;
+}
+.ari-ui-text-area:focus {
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 10px 1px #000075;
+}
+.ari-ui-text-area-no-resize {
+  resize: none;
+  border-radius: 15px;
+}
 .ari-ui-form-item {
   display: flex;
   margin-bottom: 16px;
@@ -290,4 +318,15 @@ code {
 .flow-right {
   display: flex;
   justify-content: flex-end;
+}
+.text-box {
+  border: 1px solid #000075;
+  font-size: 14px;
+  padding-left: 12px;
+  transition: 0.3s;
+}
+.text-box-focused {
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 10px 1px #000075;
 }

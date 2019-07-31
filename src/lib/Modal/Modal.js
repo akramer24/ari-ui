@@ -34,7 +34,8 @@ class Modal extends Component {
       id,
       onClose,
       title,
-      visible
+      visible,
+      width
     } = this.props;
 
     if (visible) {
@@ -42,7 +43,7 @@ class Modal extends Component {
         <div className="modal-container">
           <div className="modal-overlay" onClick={clickMaskToClose ? onClose : () => { }} />
           <div className="modal-dialog">
-            <div className={classNames('modal', { [className]: className })} id={id}>
+            <div className={classNames('modal', { [className]: className })} id={id} style={{ width }}>
               <div className="modal-header">
                 <span className="modal-title">{title && title}</span>
                 {closeable && <FaTimes className="modal-x" onClick={onClose} />}
@@ -103,7 +104,11 @@ Modal.propTypes = {
   /**
    * Determines whether or not Modal is visible.
    */
-  visible: PropTypes.bool
+  visible: PropTypes.bool,
+  /**
+   * Width of Modal.
+   */
+  width: PropTypes.number
 }
 
 export default Modal;

@@ -116,6 +116,7 @@ export const Form = [
 
 export const Input = [
   {
+    title: 'Input 1',
     props: {
       placeholder: 'Type here...',
       label: 'Input 1',
@@ -123,8 +124,20 @@ export const Input = [
     }
   },
   {
+    title: 'Input 2',
     props: {
       label: 'Input 2',
     }
   }
+]
+
+export const TextArea = [
+  {
+    title: 'TextArea',
+    props: {
+      placeholder: 'Type here...',
+      label: 'TextArea',
+      labelPosition: 'left'
+    }
+  },
 ]

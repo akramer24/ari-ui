@@ -6,6 +6,7 @@
 @import './lib/Form/Form.less';
 @import './lib/Input/Input.less';
 @import './lib/Modal/Modal.less';
+@import './lib/TextArea/TextArea.less';
 @import './hocs/index.less';
 @import './mixins.less';
 
@@ -14,6 +15,7 @@
 @tertiary-color: #b0d8fd;
 @error-color: #bf0000;
 @disabled-text-color: #e4e4e4;
+@text-box-padding: 12px;
 
 body {
   margin: 0;
@@ -34,4 +36,17 @@ code {
 .flow-right {
   display: flex;
   justify-content: flex-end;
+}
+
+.text-box {
+  border: 1px solid @primary-color;
+  font-size: 14px;
+  padding-left: @text-box-padding;
+  transition: 0.3s;
+}
+
+.text-box-focused {
+  outline: none;
+  border: none;
+  .box-shadow()
 }
