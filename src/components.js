@@ -5,4 +5,5 @@ export { default as Divider } from './lib/Divider/Divider';
 export { default as Form } from './lib/Form/Form';
 export { default as Input } from './lib/Input/Input';
 export { default as Modal } from './lib/Modal/Modal';
+export { default as Select } from './lib/Select/Select';
 export { default as TextArea } from './lib/TextArea/TextArea';

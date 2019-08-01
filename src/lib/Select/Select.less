@@ -1,0 +1,19 @@
+.ari-ui-dropdown {
+  position: absolute;
+  z-index: 99;
+  .box-shadow(@size: 3px, @color: @secondary-color);
+  padding: 5px;
+  border-radius: 5px;
+  animation-name: dropdown-appear;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}
+
+.ari-ui-select-container {
+  z-index: 100
+}
+
+@keyframes dropdown-appear {
+  0% { transform: translateY(-32px); opacity: 0 };
+  100% { transform: translateY(0px); opacity: 1 };
+}

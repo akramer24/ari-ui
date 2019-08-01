@@ -207,6 +207,13 @@
   color: #bf0000;
   z-index: 5;
 }
+.ari-ui-input-suffix {
+  position: absolute;
+  right: 12px;
+  font-size: 20px;
+  color: #000075;
+  top: calc(50% - 10px);
+}
 .modal-container {
   position: absolute;
   height: 100vh;
@@ -274,6 +281,29 @@
   }
   100% {
     transform: translateY(0vh);
+  }
+}
+.ari-ui-dropdown {
+  position: absolute;
+  z-index: 99;
+  box-shadow: 0px 0px 3px 1px #a2a2a2;
+  padding: 5px;
+  border-radius: 5px;
+  animation-name: dropdown-appear;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}
+.ari-ui-select-container {
+  z-index: 100;
+}
+@keyframes dropdown-appear {
+  0% {
+    transform: translateY(-32px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
   }
 }
 .ari-ui-text-area-container {

@@ -8,8 +8,11 @@ const Input = ({
   error,
   id,
   name,
+  onBlur,
   onChange,
+  onFocus,
   placeholder,
+  suffix,
   style,
   type,
   value
@@ -30,11 +33,18 @@ const Input = ({
         autoComplete="off"
         className={classNames('ari-ui-input', { 'input-field-error': error })}
         name={name}
+        onBlur={onBlur}
         onChange={onChange}
+        onFocus={onFocus}
         placeholder={placeholder}
         type={type}
         value={value}
       />
+      {
+        suffix
+          ? <div className="ari-ui-input-suffix">{suffix}</div>
+          : null
+      }
       {
         error
           ? <p className="ari-ui-input-error">{error}</p>
@@ -66,13 +76,25 @@ Input.propTypes = {
    */
   name: PropTypes.string,
   /**
+   * Callback triggered on blur.
+   */
+  onBlur: PropTypes.func,
+  /**
    * Callback triggered on typing.
    */
   onChange: PropTypes.func,
   /**
+   * Callback triggered on focus.
+   */
+  onFocus: PropTypes.func,
+  /**
    * Placeholder text.
    */
   placeholder: PropTypes.string,
+  /**
+   * Node attached to end of Input.
+   */
+  suffix: PropTypes.node,
   /**
    * CSS styling applied to Input.
    */

@@ -131,6 +131,15 @@ export const Input = [
   }
 ]
 
+export const Select = [
+  {
+    title: 'Select',
+    props: {
+      choices: ['Choice 1', 'Choice 2', 'Choice 3', 'Choice 1', 'Choice 2', 'Choice 3', 'Choice 1', 'Choice 2', 'Choice 3', 'Choice 1', 'Choice 2', 'Choice 3']
+    }
+  }
+]
+
 export const TextArea = [
   {
     title: 'TextArea',
