@@ -2,9 +2,14 @@ import moment from 'moment';
 
 export const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+export const getMomentObject = (month, day, year) => {
+  const date = new Date(`${month} ${day}, ${year}`);
+  return moment(date);
+}
+
 export const getFirstDayOfMonth = (month, year) => {
-  const date = new Date(`${month} 1, ${year}`);
-  return moment(date).day();
+  const date = getMomentObject(month, 1, year);
+  return date.day();
 }
 
 export const getTotalDaysInMonth = (month, year) => {
@@ -67,9 +72,9 @@ export const handleDateSelect = (date, month, year, selectedDateIndex, setSelect
 export const addEvent = (evt, date, events, setEvents, setIsModalVisible) => {
   const eventInfo = { event: evt.target.event.value, time: evt.target.time.value, description: evt.target.description.value };
   if (events[date]) {
-    setEvents({ ...events, [events[date]]: [...events[date], eventInfo] });
+    setEvents({ ...events, [date]: [...events[date], eventInfo] });
   } else {
-    setEvents({ ...events, [events[date]]: [eventInfo] });
+    setEvents({ ...events, [date]: [eventInfo] });
   }
   setIsModalVisible(false);
 }

@@ -4,11 +4,12 @@ import { omitBy, isUndefined } from 'lodash';
 import withForm from '../../hocs/withForm';
 
 const TextArea = ({
-  children,
   name,
+  onChange,
   resizable,
   rows,
-  style
+  style,
+  value
 }) => {
   const passthroughToTextArea = omitBy({
     name
@@ -24,10 +25,10 @@ const TextArea = ({
             'ari-ui-text-area-no-resize': resizable === false
           }
         )}
+        onChange={onChange}
         rows={rows}
-      >
-        {children}
-      </textarea>
+        value={value}
+      />
     </div>
   )
 }

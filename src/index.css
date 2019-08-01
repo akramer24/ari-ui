@@ -122,6 +122,15 @@
 .calendar-date-cell-inactive {
   color: #a2a2a2;
 }
+.calendar-event {
+  text-align: left;
+  font-size: 12px;
+  padding-left: 5px;
+  transition: 0.3s;
+}
+.calendar-event:hover {
+  color: #a2a2a2;
+}
 .ari-ui-card {
   min-width: 150px;
   height: fit-content;

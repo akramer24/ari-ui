@@ -13,6 +13,7 @@ import {
   changeMonth,
   changeYear,
   getFirstDayIndex,
+  getMomentObject,
   getTotalDaysInMonth,
   handleDateSelect,
   months
@@ -42,6 +43,7 @@ const Calendar = (props) => {
   const [selectedDateIndex, setSelectedDateIndex] = useState(moment().date() + firstDayIndex - 1);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [events, setEvents] = useState(props.events);
+  const [selectedEvent, setSelectedEvent] = useState({});
 
   return (
     <React.Fragment>
@@ -86,7 +88,8 @@ const Calendar = (props) => {
                   : i >= firstDayIndex + totalDaysInMonth
                     ? nextMonthDaysArr[i - firstDayIndex - totalDaysInMonth]
                     : totalDaysInPreviousMonthArr[i]
-
+              const formattedDate = getMomentObject(month, date, year).format('YYYY-MM-DD');
+              const dateEvents = events[formattedDate];
               return (
                 <div
                   key={`${month}-${i}`}
@@ -110,6 +113,19 @@ const Calendar = (props) => {
                   >
                     {date}
                   </div>
+                  <div className="calendar-events-container">
+                    {
+                      dateEvents && dateEvents.map((event, idx) => (
+                        <div
+                          key={`${formattedDate}-${idx}`}
+                          className="calendar-event"
+                          onClick={() => setSelectedEvent(event)}
+                        >
+                          &bull; {event.event}
+                        </div>
+                      ))
+                    }
+                  </div>
                 </div>
               )
             })
@@ -117,7 +133,8 @@ const Calendar = (props) => {
         </div>
       </div>
       <Modal
-        onClose={() => setIsModalVisible(false)}
+        clickMaskToClose={true}
+        onClose={() => { setIsModalVisible(false); setSelectedEvent({}); }}
         title={selectedDate.format('MMMM D[,] YYYY')}
         visible={isModalVisible}
         width={400}
@@ -125,8 +142,8 @@ const Calendar = (props) => {
         <Form
           columnWidth={null}
           content={[[
-            <Input name="event" labelPosition="left" label="Event" />,
-            <Input name="time" labelPosition="left" label="Time" />,
+            <Input name="event" labelPosition="left" label="Event" value={selectedEvent.event || ''} />,
+            <Input name="time" labelPosition="left" label="Time" value={selectedEvent.time || ''} />,
             <TextArea
               name="description"
               labelPosition="top"
@@ -135,10 +152,11 @@ const Calendar = (props) => {
               rows={7}
               style={{ height: 100 }}
               type="text"
+              value={selectedEvent.description || ''}
             />,
             <Button kind="primary" type="submit">Add event</Button>
           ]]}
-          onSubmit={evt => addEvent(evt, selectedDate, events, setEvents, setIsModalVisible)}
+          onSubmit={evt => addEvent(evt, selectedDate.format('YYYY-MM-DD'), events, setEvents, setIsModalVisible)}
         />
       </Modal>
     </React.Fragment>
@@ -146,7 +164,7 @@ const Calendar = (props) => {
 }
 
 Calendar.defaultProps = {
-  events: {}
+  events: { '2019-07-14': [{ event: 'Dr.' }] }
 }
 
 Calendar.propTypes = {
