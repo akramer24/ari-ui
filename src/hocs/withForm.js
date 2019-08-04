@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 const withForm = Component =>
-  ({ label, labelPosition, style, ...rest }) => {
+  React.forwardRef(({ label, labelPosition, style, ...rest }, ref) => {
     let width = null;
     let maxWidth = null;
 
@@ -25,9 +25,9 @@ const withForm = Component =>
         style={{ width, maxWidth }}
       >
         {label && <div className="ari-ui-form-item-label">{label}:&nbsp;</div>}
-        <Component {...rest} style={style} />
+        <Component {...rest} style={style} ref={ref} />
       </div>
     )
-  }
+  })
 
 export default withForm;

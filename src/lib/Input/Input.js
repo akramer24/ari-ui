@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import withForm from '../../hocs/withForm';
 
-const Input = ({
+const Input = React.forwardRef(({
   className,
   error,
   id,
@@ -11,12 +11,13 @@ const Input = ({
   onBlur,
   onChange,
   onFocus,
+  onKeyDown,
   placeholder,
   suffix,
   style,
   type,
   value
-}) => {
+}, ref) => {
 
   return (
     <div
@@ -36,7 +37,9 @@ const Input = ({
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
+        onKeyDown={onKeyDown}
         placeholder={placeholder}
+        ref={ref}
         type={type}
         value={value}
       />
@@ -52,7 +55,7 @@ const Input = ({
       }
     </div>
   )
-}
+})
 
 Input.defaultProps = {
   type: 'text'

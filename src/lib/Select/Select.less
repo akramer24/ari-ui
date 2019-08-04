@@ -1,16 +1,26 @@
 .ari-ui-dropdown {
   position: absolute;
   z-index: 99;
+  margin-top: 5px;
+  overflow: auto;
   .box-shadow(@size: 3px, @color: @secondary-color);
-  padding: 5px;
   border-radius: 5px;
   animation-name: dropdown-appear;
   animation-duration: 0.3s;
   animation-timing-function: ease-out;
+
+  &-choice {
+    color: @primary-color;
+    cursor: pointer;
+  }
+
+  &-choice-active {
+    background-color: @tertiary-color;
+  }
 }
 
 .ari-ui-select-container {
-  z-index: 100
+  z-index: 100;
 }
 
 @keyframes dropdown-appear {
