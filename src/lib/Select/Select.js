@@ -81,6 +81,8 @@ class Select extends React.Component {
         value.length <= this.state.value.length
           ? Select.filterChoices(this.props.choices, value)
           : Select.filterChoices(this.state.filteredChoices, value);
+      const dropdown = document.querySelector(`#${this.dropdownId} .ari-ui-dropdown`);
+      dropdown.scrollTop = 0;
     }
     this.setState(newState);
   }
