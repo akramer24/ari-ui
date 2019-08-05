@@ -30,7 +30,6 @@ const Dropdown = ({
 
   const handleScroll = e => {
     if (e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight < 100) {
-      console.log('scroll')
       scrollIndex += maxToRender;
       setEndIdx(scrollIndex);
     }

@@ -3,6 +3,7 @@ import {
   FaAngleDown
 } from 'react-icons/fa';
 import uniqid from 'uniqid';
+import classNames from 'classnames';
 import Input from '../Input/Input';
 import Dropdown from './Dropdown';
 
@@ -33,6 +34,7 @@ class Select extends React.Component {
     this.handleSelectChoice = this.handleSelectChoice.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleInputKeyDown = this.handleInputKeyDown.bind(this);
+    this.handleCaretClick = this.handleCaretClick.bind(this);
 
     this.inputRef = React.createRef();
     this.choiceHeight = 24;
@@ -118,10 +120,19 @@ class Select extends React.Component {
     } else if (evt.keyCode === 13) {
       // Enter
       this.handleSelectChoice();
-    } else if (evt.keyCode === 9) {
-      // Tab
+    } else if (evt.keyCode === 9 || evt.keyCode === 27) {
+      // Tab/Esc
       this.setState({ isDropdownVisible: false }, () => this.inputRef.current.blur());
     }
+  }
+
+  handleCaretClick() {
+    this.setState(
+      state => ({ isDropdownVisible: !state.isDropdownVisible, activeChoiceIndex: 0 }),
+      () => {
+        this.state.isDropdownVisible ? this.inputRef.current.focus() : this.inputRef.current.blur();
+      }
+    );
   }
 
   static filterChoices(choices, value) {
@@ -139,7 +150,18 @@ class Select extends React.Component {
           onFocus={this.handleFocus}
           onKeyDown={this.handleInputKeyDown}
           ref={this.inputRef}
-          suffix={<FaAngleDown />}
+          suffix={<FaAngleDown
+            className={
+              classNames(
+                'ari-ui-select-caret',
+                {
+                  'ari-ui-select-caret-open': isDropdownVisible,
+                  'ari-ui-select-caret-closed': !isDropdownVisible
+                }
+              )
+            }
+            onClick={this.handleCaretClick}
+          />}
           value={value}
         />
         {
