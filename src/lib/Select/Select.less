@@ -5,13 +5,14 @@
   overflow: auto;
   .box-shadow(@size: 3px, @color: @secondary-color);
   border-radius: 5px;
-  animation-name: dropdown-appear;
-  animation-duration: 0.3s;
-  animation-timing-function: ease-out;
+  .slide-down();
 
   &-choice {
+    display: flex;
+    align-items: center;
     color: @primary-color;
     cursor: pointer;
+    font-size: 12px;
   }
 
   &-choice-active {
@@ -21,6 +22,10 @@
 
 .ari-ui-select-container {
   z-index: 100;
+}
+
+.ari-ui-non-searchable-select-input .ari-ui-input {
+  cursor: pointer;
 }
 
 .ari-ui-select-caret {
@@ -39,11 +44,6 @@
   animation-duration: 0.3s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
-}
-
-@keyframes dropdown-appear {
-  from { transform: translateY(-32px); opacity: 0 };
-  to { transform: translateY(0px); opacity: 1 };
 }
 
 @keyframes open-caret {

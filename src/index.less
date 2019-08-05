@@ -51,3 +51,14 @@ code {
   border: none;
   .box-shadow()
 }
+
+.slide-down {
+  animation-name: slide-down;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes slide-down {
+  from { transform: translateY(-32px); opacity: 0 };
+  to { transform: translateY(0px); opacity: 1 };
+}

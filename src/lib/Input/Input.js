@@ -5,11 +5,12 @@ import withForm from '../../hocs/withForm';
 
 const Input = React.forwardRef(({
   className,
-  error,
+  disabled,
   id,
   name,
   onBlur,
   onChange,
+  onClick,
   onFocus,
   onKeyDown,
   placeholder,
@@ -32,10 +33,12 @@ const Input = React.forwardRef(({
     >
       <input
         autoComplete="off"
-        className={classNames('ari-ui-input', { 'input-field-error': error })}
+        className="ari-ui-input"
+        disabled={disabled}
         name={name}
         onBlur={onBlur}
         onChange={onChange}
+        onClick={onClick}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         placeholder={placeholder}
@@ -46,11 +49,6 @@ const Input = React.forwardRef(({
       {
         suffix
           ? <div className="ari-ui-input-suffix">{suffix}</div>
-          : null
-      }
-      {
-        error
-          ? <p className="ari-ui-input-error">{error}</p>
           : null
       }
     </div>
@@ -67,9 +65,9 @@ Input.propTypes = {
    */
   className: PropTypes.string,
   /**
-   * Error to display.
+   * Determines whether or not Input is disabled.
    */
-  error: PropTypes.string,
+  disabled: PropTypes.bool,
   /**
    * CSS id applied to Input.
    */
@@ -112,4 +110,5 @@ Input.propTypes = {
   value: PropTypes.string,
 }
 
+export { Input };
 export default withForm(Input);

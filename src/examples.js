@@ -127,6 +127,7 @@ export const Input = [
     title: 'Input 2',
     props: {
       label: 'Input 2',
+      error: 'uh oh'
     }
   }
 ]
@@ -135,6 +136,9 @@ export const Select = [
   {
     title: 'Select',
     props: {
+      label: 'Baseball players',
+      labelPosition: 'left',
+      error: 'uh ohhh',
       choices: [
         'DJ LeMahieu',
         'Aaron Judge',

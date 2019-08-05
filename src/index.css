@@ -194,19 +194,6 @@
   border: none;
   box-shadow: 0px 0px 10px 1px #000075;
 }
-.ari-ui-input-field-error {
-  border: 1px solid #bf0000;
-}
-.ari-ui-input-error {
-  position: absolute;
-  margin: 0;
-  top: 32px;
-  padding-left: 12px;
-  width: 100%;
-  font-size: 10px;
-  color: #bf0000;
-  z-index: 5;
-}
 .ari-ui-input-suffix {
   position: absolute;
   right: 12px;
@@ -290,19 +277,25 @@
   overflow: auto;
   box-shadow: 0px 0px 3px 1px #a2a2a2;
   border-radius: 5px;
-  animation-name: dropdown-appear;
+  animation-name: slide-down;
   animation-duration: 0.3s;
   animation-timing-function: ease-out;
 }
 .ari-ui-dropdown-choice {
+  display: flex;
+  align-items: center;
   color: #000075;
   cursor: pointer;
+  font-size: 12px;
 }
 .ari-ui-dropdown-choice-active {
   background-color: #b0d8fd;
 }
 .ari-ui-select-container {
   z-index: 100;
+}
+.ari-ui-non-searchable-select-input .ari-ui-input {
+  cursor: pointer;
 }
 .ari-ui-select-caret {
   cursor: pointer;
@@ -318,16 +311,6 @@
   animation-duration: 0.3s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
-}
-@keyframes dropdown-appear {
-  from {
-    transform: translateY(-32px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 1;
-  }
 }
 @keyframes open-caret {
   from {
@@ -381,6 +364,17 @@
 .ari-ui-form-item-with-label-top {
   flex-direction: column;
 }
+.ari-ui-form-item-error {
+  position: absolute;
+  margin: 0;
+  padding-left: 12px;
+  font-size: 12px;
+  color: #bf0000;
+  z-index: 5;
+  animation-name: slide-down;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}
 body {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
@@ -407,4 +401,19 @@ code {
   outline: none;
   border: none;
   box-shadow: 0px 0px 10px 1px #000075;
+}
+.slide-down {
+  animation-name: slide-down;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}
+@keyframes slide-down {
+  from {
+    transform: translateY(-32px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }

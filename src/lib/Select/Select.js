@@ -1,14 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   FaAngleDown
 } from 'react-icons/fa';
 import uniqid from 'uniqid';
 import classNames from 'classnames';
-import Input from '../Input/Input';
+import withForm from '../../hocs/withForm';
+import { Input } from '../Input/Input';
 import Dropdown from './Dropdown';
 
 class Select extends React.Component {
   static defaultProps = {
+    choices: [],
+    placeholder: 'Select',
     searchable: true,
     value: ''
   };
@@ -58,6 +62,7 @@ class Select extends React.Component {
   }
 
   handleFocus() {
+    !this.props.searchable && this.inputRef.current.blur();
     this.setState({ isDropdownVisible: true, activeChoiceIndex: 0 });
   }
 
@@ -143,14 +148,21 @@ class Select extends React.Component {
 
   render() {
     const { activeChoiceIndex, filteredChoices, isDropdownVisible, value } = this.state;
+    const { placeholder, searchable } = this.props;
 
     return (
       <div id={this.id} className="ari-ui-select-container">
         <Input
-          className="ari-ui-dropdown-parent"
+          className={classNames(
+            'ari-ui-dropdown-parent',
+            {
+              'ari-ui-non-searchable-select-input': !searchable
+            }
+          )}
           onChange={this.handleInputChange}
           onFocus={this.handleFocus}
           onKeyDown={this.handleInputKeyDown}
+          placeholder={placeholder}
           ref={this.inputRef}
           suffix={<FaAngleDown
             className={
@@ -185,4 +197,23 @@ class Select extends React.Component {
   }
 }
 
-export default Select;
+Select.propTypes = {
+  /**
+   * Choices that populate dropdown.
+   */
+  choices: PropTypes.arrayOf(PropTypes.string),
+  /**
+   * Placeholder text.
+   */
+  placeholder: PropTypes.string,
+  /**
+   * If true, typing into input will filter choices.
+   */
+  searchable: PropTypes.bool,
+  /**
+   * Value of Select.
+   */
+  value: PropTypes.string
+}
+
+export default withForm(Select);

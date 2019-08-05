@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const withForm = Component =>
-  React.forwardRef(({ label, labelPosition, style, ...rest }, ref) => {
+  React.forwardRef(({ error, label, labelPosition, style, ...rest }, ref) => {
     let width = null;
     let maxWidth = null;
 
@@ -25,9 +26,23 @@ const withForm = Component =>
         style={{ width, maxWidth }}
       >
         {label && <div className="ari-ui-form-item-label">{label}:&nbsp;</div>}
-        <Component {...rest} style={style} ref={ref} />
+        <div className="ari-ui-form-item-component">
+          <Component {...rest} style={style} ref={ref} />
+          {
+            error
+              ? <div className="ari-ui-form-item-error">{error}</div>
+              : null
+          }
+        </div>
       </div>
     )
   })
+
+withForm.propTypes = {
+  /**
+   * Error to display.
+   */
+  error: PropTypes.string,
+}
 
 export default withForm;
