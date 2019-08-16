@@ -1,5 +1,10 @@
 import React from 'react';
-import { Button as AriButton, Checkbox as AriCheckbox, Input as AriInput } from './components';
+import {
+  Button as AriButton,
+  Checkbox as AriCheckbox,
+  Input as AriInput,
+  Select as AriSelect
+} from './components';
 import ModalExample from './examples/modal';
 
 export const Button = [
@@ -113,12 +118,16 @@ export const Form = [
   {
     title: 'Form with columns',
     props: {
-      content: [[< AriCheckbox label="col 1 checkbox 1" />, <AriInput label="col 1 input 2" />, < AriInput label="col 1 input 3" />, <AriInput label="col 1 input 4" />], [<AriInput label="col 2 input 1" />, <AriInput label="col 2 input 2" />, <AriInput label="col 2 input 3" />, <AriInput label="col 2 input 4" />]]
+      content: [
+        [< AriCheckbox label="col 1 checkbox 1" />, <AriInput label="col 1 input 1" />, < AriSelect label="col 1 select 1" choices={['A great choice', 'A fine choice', 'A bad choice']} />, <AriInput label="col 1 input 2" />],
+        [<AriInput label="col 2 input 1" />, <AriInput label="col 2 input 2" />, <AriInput label="col 2 input 3" />, <AriInput label="col 2 input 4" />]
+      ]
     }
   },
   {
     title: 'Form with rows',
     props: {
+      direction: 'rows',
       content: [[< AriInput labelPosition="left" label="row 1 input 1" />, <AriInput labelPosition="left" label="row 1 input 2" />, < AriInput labelPosition="left" label="row 1 input 3" />, <AriInput labelPosition="left" label="row 1 input 4" />], [<AriInput labelPosition="left" label="row 2 input 1" />, <AriInput labelPosition="left" label="row 2 input 2" />, <AriInput labelPosition="left" label="row 2 input 3" />, <AriInput labelPosition="left" label="row 2 input 4" />]]
     }
   }
