@@ -141,6 +141,45 @@
 .ari-ui-small-padding {
   padding: 5px;
 }
+.ari-ui-checkbox {
+  height: 18px;
+  width: 18px;
+  appearance: none;
+  background-color: #fafafa;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 9px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+  border: 1px solid #000075;
+  font-size: 14px;
+  transition: 0.3s;
+}
+.ari-ui-checkbox:checked {
+  background-color: #e9ecee;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+  color: #99a1a7;
+}
+.ari-ui-checkbox:active,
+.ari-ui-checkbox:checked:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.ari-ui-checkbox:checked:after {
+  content: '\2714';
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  color: #000075;
+}
+.ari-ui-checkbox:focus {
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 10px 1px #000075;
+  border: 1px solid #000075;
+  font-size: 14px;
+  transition: 0.3s;
+}
 .ari-ui-divider {
   background-color: #a2a2a2;
 }
@@ -184,8 +223,8 @@
 .ari-ui-input {
   border: 1px solid #000075;
   font-size: 14px;
-  padding-left: 12px;
   transition: 0.3s;
+  padding-left: 12px;
   flex-grow: 1;
   border-radius: 15px;
 }
@@ -334,8 +373,8 @@
 .ari-ui-text-area {
   border: 1px solid #000075;
   font-size: 14px;
-  padding-left: 12px;
   transition: 0.3s;
+  padding-left: 12px;
   border-radius: 15px 15px 0px 15px;
   padding-top: 12px;
   flex: 1;
@@ -391,11 +430,16 @@ code {
   display: flex;
   justify-content: flex-end;
 }
+.form-field {
+  border: 1px solid #000075;
+  font-size: 14px;
+  transition: 0.3s;
+}
 .text-box {
   border: 1px solid #000075;
   font-size: 14px;
-  padding-left: 12px;
   transition: 0.3s;
+  padding-left: 12px;
 }
 .text-box-focused {
   outline: none;

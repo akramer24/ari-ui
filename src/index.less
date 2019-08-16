@@ -2,6 +2,7 @@
 @import './lib/Button/Button.less';
 @import './lib/Calendar/Calendar.less';
 @import './lib/Card/Card.less';
+@import './lib/Checkbox/Checkbox.less';
 @import './lib/Divider/Divider.less';
 @import './lib/Form/Form.less';
 @import './lib/Input/Input.less';
@@ -39,11 +40,15 @@ code {
   justify-content: flex-end;
 }
 
-.text-box {
+.form-field {
   border: 1px solid @primary-color;
   font-size: 14px;
-  padding-left: @text-box-padding;
   transition: 0.3s;
+}
+
+.text-box {
+  .form-field();
+  padding-left: @text-box-padding;
 }
 
 .text-box-focused {

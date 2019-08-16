@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button as AriButton, Input as AriInput } from './components';
+import { Button as AriButton, Checkbox as AriCheckbox, Input as AriInput } from './components';
 import ModalExample from './examples/modal';
 
 export const Button = [
@@ -87,6 +87,16 @@ export const Card = [
   }
 ]
 
+export const Checkbox = [
+  {
+    title: 'Checkbox',
+    props: {
+      label: 'Check me',
+      labelPosition: 'left',
+    }
+  }
+]
+
 export const Divider = [
   {
     title: 'Horizontal Divider'
@@ -103,7 +113,7 @@ export const Form = [
   {
     title: 'Form with columns',
     props: {
-      content: [[< AriInput label="col 1 input 1" />, <AriInput label="col 1 input 2" />, < AriInput label="col 1 input 3" />, <AriInput label="col 1 input 4" />], [<AriInput label="col 2 input 1" />, <AriInput label="col 2 input 2" />, <AriInput label="col 2 input 3" />, <AriInput label="col 2 input 4" />]]
+      content: [[< AriCheckbox label="col 1 checkbox 1" />, <AriInput label="col 1 input 2" />, < AriInput label="col 1 input 3" />, <AriInput label="col 1 input 4" />], [<AriInput label="col 2 input 1" />, <AriInput label="col 2 input 2" />, <AriInput label="col 2 input 3" />, <AriInput label="col 2 input 4" />]]
     }
   },
   {
@@ -118,16 +128,16 @@ export const Input = [
   {
     title: 'Input 1',
     props: {
+      autoFocus: true,
       placeholder: 'Type here...',
       label: 'Input 1',
-      labelPosition: 'left'
+      labelPosition: 'left',
     }
   },
   {
     title: 'Input 2',
     props: {
       label: 'Input 2',
-      error: 'uh oh'
     }
   }
 ]
@@ -138,7 +148,6 @@ export const Select = [
     props: {
       label: 'Baseball players',
       labelPosition: 'left',
-      error: 'uh ohhh',
       choices: [
         'DJ LeMahieu',
         'Aaron Judge',

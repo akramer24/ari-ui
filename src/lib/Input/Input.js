@@ -1,9 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { omitBy, isUndefined } from 'lodash';
 import withForm from '../../hocs/withForm';
 
 const Input = React.forwardRef(({
+  autoFocus,
   className,
   disabled,
   id,
@@ -16,9 +18,23 @@ const Input = React.forwardRef(({
   placeholder,
   suffix,
   style,
+  tabindex,
   type,
   value
 }, ref) => {
+
+  const passthroughToInput = omitBy({
+    autoFocus,
+    disabled,
+    name,
+    onBlur,
+    onChange,
+    onClick,
+    onFocus,
+    onKeyDown,
+    placeholder,
+    tabindex
+  }, isUndefined)
 
   return (
     <div
@@ -32,16 +48,9 @@ const Input = React.forwardRef(({
       style={style}
     >
       <input
+        {...passthroughToInput}
         autoComplete="off"
         className="ari-ui-input"
-        disabled={disabled}
-        name={name}
-        onBlur={onBlur}
-        onChange={onChange}
-        onClick={onClick}
-        onFocus={onFocus}
-        onKeyDown={onKeyDown}
-        placeholder={placeholder}
         ref={ref}
         type={type}
         value={value}
@@ -56,10 +65,15 @@ const Input = React.forwardRef(({
 })
 
 Input.defaultProps = {
-  type: 'text'
+  disabled: false,
+  type: 'text',
 }
 
 Input.propTypes = {
+  /**
+   * Determines whether or not input is auto-focused.
+   */
+  autoFocus: PropTypes.bool,
   /**
    * CSS class(es) applied to Input.
    */
@@ -85,6 +99,10 @@ Input.propTypes = {
    */
   onChange: PropTypes.func,
   /**
+   * Callback triggered on click.
+   */
+  onClick: PropTypes.func,
+  /**
    * Callback triggered on focus.
    */
   onFocus: PropTypes.func,
@@ -100,6 +118,10 @@ Input.propTypes = {
    * CSS styling applied to Input.
    */
   style: PropTypes.object,
+  /**
+   * Sets input's place in the tab order.
+   */
+  tabindex: PropTypes.number,
   /**
    * Input type.
    */
