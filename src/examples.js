@@ -12,7 +12,7 @@ export const Button = [
   {
     title: 'Primary Button',
     props: {
-      kind: 'primary',
+      appearance: 'primary',
       onClick() { console.log('primary button clicked') },
       children: 'Click me!'
     }
@@ -20,7 +20,7 @@ export const Button = [
   {
     title: 'Danger Button',
     props: {
-      kind: 'danger',
+      appearance: 'danger',
       children: 'Click me!'
     }
   },

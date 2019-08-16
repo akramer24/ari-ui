@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import { omitBy, isUndefined } from 'lodash';
 
 const Button = ({
+  appearance,
   children,
   className,
   disabled,
   edge,
   id,
-  kind,
   onClick,
   style,
   type,
@@ -19,16 +19,16 @@ const Button = ({
     style
   }, isUndefined);
 
-  let kindClassName;
-  switch (kind) {
+  let appearanceClassName;
+  switch (appearance) {
     case 'primary':
-      kindClassName = 'ari-ui-btn-primary';
+      appearanceClassName = 'ari-ui-btn-primary';
       break;
     case 'danger':
-      kindClassName = 'ari-ui-btn-danger';
+      appearanceClassName = 'ari-ui-btn-danger';
       break;
     default:
-      kindClassName = 'ari-ui-btn-default';
+      appearanceClassName = 'ari-ui-btn-default';
   }
 
   return (
@@ -36,7 +36,7 @@ const Button = ({
       {...passthroughToButton}
       className={classNames(
         'ari-ui-btn',
-        kindClassName,
+        appearanceClassName,
         {
           [className]: className,
           'ari-ui-btn-disabled': disabled,
@@ -55,7 +55,7 @@ const Button = ({
 Button.defaultProps = {
   disabled: false,
   edge: 'straight',
-  kind: 'default',
+  appearance: 'default',
   type: 'button'
 }
 
@@ -81,9 +81,9 @@ Button.propTypes = {
    */
   id: PropTypes.string,
   /**
-   * Button kind.
+   * Button appearance.
    */
-  kind: PropTypes.oneOf(['default', 'primary', 'danger']),
+  appearance: PropTypes.oneOf(['default', 'primary', 'danger']),
   /**
    * Callback triggered by clicking Button.
    */
