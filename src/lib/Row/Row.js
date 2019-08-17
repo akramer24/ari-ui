@@ -1,74 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import withFlex from '../../hocs/withFlex';
 
-const Row = ({
-  children,
-  horizontalAlignment,
-  style,
-  verticalAlignment,
-  wrap
-}) => {
-  let horizontalAlignmentClass;
-
-  switch (horizontalAlignment) {
-    case 'center':
-      horizontalAlignmentClass = 'justify-center';
-      break;
-    case 'right':
-      horizontalAlignmentClass = 'justify-end';
-      break;
-    case 'space-evenly':
-      horizontalAlignmentClass = 'justify-even';
-      break;
-    case 'space-between':
-      horizontalAlignmentClass = 'justify-between';
-      break;
-    case 'space-around':
-      horizontalAlignmentClass = 'justify-around';
-      break;
-    default:
-      horizontalAlignmentClass = 'justify-start';
-  }
-
-  let verticalAlignmentClass;
-
-  switch (verticalAlignment) {
-    case 'top':
-      verticalAlignmentClass = 'align-start';
-      break;
-    case 'bottom':
-      verticalAlignmentClass = 'align-end';
-      break;
-    case 'space-evenly':
-      verticalAlignmentClass = 'align-even';
-      break;
-    case 'space-between':
-      verticalAlignmentClass = 'align-between';
-      break;
-    case 'space-around':
-      verticalAlignmentClass = 'align-around';
-      break;
-    default:
-      verticalAlignmentClass = 'align-center';
-  }
-
-  return (
-    <div
-      className={classNames(
-        'flex-row',
-        horizontalAlignmentClass,
-        verticalAlignmentClass,
-        {
-          wrap
-        }
-      )}
-      style={style}
-    >
-      {children}
-    </div>
-  )
-}
+const Row = ({ children, className, style }) =>
+  <div
+    className={className}
+    style={style}
+  >
+    {children}
+  </div>
 
 Row.defaultProps = {
   horizontalAlignment: 'left',
@@ -99,4 +39,4 @@ Row.propTypes = {
   wrap: PropTypes.bool
 }
 
-export default Row;
+export default withFlex(Row, 'row');

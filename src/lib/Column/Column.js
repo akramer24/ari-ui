@@ -1,74 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import withFlex from '../../hocs/withFlex';
 
-const Column = ({
-  children,
-  horizontalAlignment,
-  style,
-  verticalAlignment,
-  wrap
-}) => {
-  let verticalAlignmentClass;
-
-  switch (verticalAlignment) {
-    case 'center':
-      verticalAlignmentClass = 'justify-center';
-      break;
-    case 'right':
-      verticalAlignmentClass = 'justify-end';
-      break;
-    case 'space-evenly':
-      verticalAlignmentClass = 'justify-even';
-      break;
-    case 'space-between':
-      verticalAlignmentClass = 'justify-between';
-      break;
-    case 'space-around':
-      verticalAlignmentClass = 'justify-around';
-      break;
-    default:
-      verticalAlignmentClass = 'justify-start';
-  }
-
-  let horizontalAlignmentClass;
-
-  switch (horizontalAlignment) {
-    case 'center':
-      horizontalAlignmentClass = 'align-center';
-      break;
-    case 'bottom':
-      horizontalAlignmentClass = 'align-end';
-      break;
-    case 'space-evenly':
-      horizontalAlignmentClass = 'align-even';
-      break;
-    case 'space-between':
-      horizontalAlignmentClass = 'align-between';
-      break;
-    case 'space-around':
-      horizontalAlignmentClass = 'align-around';
-      break;
-    default:
-      horizontalAlignmentClass = 'align-start';
-  }
-
-  return (
-    <div
-      className={classNames(
-        'flex-column',
-        horizontalAlignmentClass,
-        verticalAlignmentClass,
-        {
-          wrap
-        }
-      )}
-      style={style}
-    >
-      {children}
-    </div>
-  )
-}
+const Column = ({ children, className, style }) =>
+  <div
+    className={className}
+    style={style}
+  >
+    {children}
+  </div>
 
 Column.defaultProps = {
   horizontalAlignment: 'left',
@@ -99,4 +39,4 @@ Column.propTypes = {
   wrap: PropTypes.bool
 }
 
-export default Column;
+export default withFlex(Column, 'column');
