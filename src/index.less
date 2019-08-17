@@ -7,6 +7,7 @@
 @import './lib/Form/Form.less';
 @import './lib/Input/Input.less';
 @import './lib/Modal/Modal.less';
+@import './lib/Row//Row.less';
 @import './lib/Select/Select.less';
 @import './lib/TextArea/TextArea.less';
 @import './hocs/index.less';
@@ -18,6 +19,7 @@
 @error-color: #bf0000;
 @disabled-text-color: #e4e4e4;
 @text-box-padding: 12px;
+@row-margin: 16px;
 
 body {
   margin: 0;
@@ -66,4 +68,56 @@ code {
 @keyframes slide-down {
   from { transform: translateY(-32px); opacity: 0 };
   to { transform: translateY(0px); opacity: 1 };
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-even {
+  justify-content: space-evenly;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-even {
+  align-items: space-evenly;
+}
+
+.align-between {
+  align-items: space-between;
+}
+
+.align-around {
+  align-items: space-around;
+}
+
+.wrap {
+  flex-wrap: wrap;
 }

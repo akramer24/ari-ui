@@ -312,6 +312,15 @@
     transform: translateY(0vh);
   }
 }
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+}
+.flex-row > * {
+  margin-right: 16px;
+  margin-bottom: 0 !important;
+}
 .ari-ui-dropdown {
   position: absolute;
   z-index: 99;
@@ -464,4 +473,43 @@ code {
     transform: translateY(0px);
     opacity: 1;
   }
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-even {
+  justify-content: space-evenly;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.align-center {
+  align-items: center;
+}
+.align-start {
+  align-items: flex-start;
+}
+.align-end {
+  align-items: flex-end;
+}
+.align-even {
+  align-items: space-evenly;
+}
+.align-between {
+  align-items: space-between;
+}
+.align-around {
+  align-items: space-around;
+}
+.wrap {
+  flex-wrap: wrap;
 }

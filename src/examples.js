@@ -119,7 +119,7 @@ export const Form = [
     title: 'Form with columns',
     props: {
       content: [
-        [< AriCheckbox label="col 1 checkbox 1" />, <AriInput label="col 1 input 1" />, < AriSelect label="col 1 select 1" choices={['A great choice', 'A fine choice', 'A bad choice']} />, <AriInput label="col 1 input 2" />],
+        [<AriCheckbox label="col 1 checkbox 1" />, <AriInput label="col 1 input 1" />, < AriSelect label="col 1 select 1" choices={['A great choice', 'A fine choice', 'A bad choice']} />, <AriInput label="col 1 input 2" />],
         [<AriInput label="col 2 input 1" />, <AriInput label="col 2 input 2" />, <AriInput label="col 2 input 3" />, <AriInput label="col 2 input 4" />]
       ]
     }
@@ -216,6 +216,22 @@ export const Select = [
         'Andrew Benintendi',
         'Dustin Pedroia',
       ]
+    }
+  }
+]
+
+export const Row = [
+  {
+    title: 'Row',
+    props: {
+      children: [<AriInput />, <AriButton>Click</AriButton>, <AriCheckbox />]
+    }
+  },
+  {
+    title: 'Spaced evenly',
+    props: {
+      children: [<AriInput />, <AriButton>Click</AriButton>, <AriCheckbox />],
+      horizontalAlignment: 'space-evenly'
     }
   }
 ]
