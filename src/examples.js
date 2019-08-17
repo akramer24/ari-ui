@@ -106,13 +106,13 @@ export const Column = [
   {
     title: 'Column',
     props: {
-      children: [<AriInput />, <AriButton>Click</AriButton>, <AriCheckbox />]
+      children: [<AriInput key="column-1-input" />, <AriButton key="column-1-button">Click</AriButton>, <AriCheckbox key="column-1-checkbox" />]
     }
   },
   {
     title: 'Space between',
     props: {
-      children: [<AriInput />, <AriButton>Click</AriButton>, <AriCheckbox />],
+      children: [<AriInput key="column-2-input" />, <AriButton key="column-2-button">Click</AriButton>, <AriCheckbox key="column-2-checkbox" />],
       verticalAlignment: 'space-between',
       style: { height: '100vh' }
     }
@@ -241,13 +241,13 @@ export const Row = [
   {
     title: 'Row',
     props: {
-      children: [<AriInput />, <AriButton>Click</AriButton>, <AriCheckbox />]
+      children: [<AriInput key="row-1-input" />, <AriButton key="row-1-button">Click</AriButton>, <AriCheckbox key="row-1-checkbox" />]
     }
   },
   {
     title: 'Spaced evenly',
     props: {
-      children: [<AriInput />, <AriButton>Click</AriButton>, <AriCheckbox />],
+      children: [<AriInput key="row-2-input" />, <AriButton key="row-2-button">Click</AriButton>, <AriCheckbox key="row-2-checkbox" />],
       horizontalAlignment: 'space-evenly'
     }
   }
