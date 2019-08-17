@@ -180,6 +180,13 @@
   font-size: 14px;
   transition: 0.3s;
 }
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-column > * {
+  margin-bottom: 16px !important;
+}
 .ari-ui-divider {
   background-color: #a2a2a2;
 }

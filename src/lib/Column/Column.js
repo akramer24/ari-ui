@@ -2,61 +2,61 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Row = ({
+const Column = ({
   children,
   horizontalAlignment,
   style,
   verticalAlignment,
   wrap
 }) => {
+  let verticalAlignmentClass;
+
+  switch (verticalAlignment) {
+    case 'center':
+      verticalAlignmentClass = 'justify-center';
+      break;
+    case 'right':
+      verticalAlignmentClass = 'justify-end';
+      break;
+    case 'space-evenly':
+      verticalAlignmentClass = 'justify-even';
+      break;
+    case 'space-between':
+      verticalAlignmentClass = 'justify-between';
+      break;
+    case 'space-around':
+      verticalAlignmentClass = 'justify-around';
+      break;
+    default:
+      verticalAlignmentClass = 'justify-start';
+  }
+
   let horizontalAlignmentClass;
 
   switch (horizontalAlignment) {
     case 'center':
-      horizontalAlignmentClass = 'justify-center';
-      break;
-    case 'right':
-      horizontalAlignmentClass = 'justify-end';
-      break;
-    case 'space-evenly':
-      horizontalAlignmentClass = 'justify-even';
-      break;
-    case 'space-between':
-      horizontalAlignmentClass = 'justify-between';
-      break;
-    case 'space-around':
-      horizontalAlignmentClass = 'justify-around';
-      break;
-    default:
-      horizontalAlignmentClass = 'justify-start';
-  }
-
-  let verticalAlignmentClass;
-
-  switch (verticalAlignment) {
-    case 'top':
-      verticalAlignmentClass = 'align-start';
+      horizontalAlignmentClass = 'align-center';
       break;
     case 'bottom':
-      verticalAlignmentClass = 'align-end';
+      horizontalAlignmentClass = 'align-end';
       break;
     case 'space-evenly':
-      verticalAlignmentClass = 'align-even';
+      horizontalAlignmentClass = 'align-even';
       break;
     case 'space-between':
-      verticalAlignmentClass = 'align-between';
+      horizontalAlignmentClass = 'align-between';
       break;
     case 'space-around':
-      verticalAlignmentClass = 'align-around';
+      horizontalAlignmentClass = 'align-around';
       break;
     default:
-      verticalAlignmentClass = 'align-center';
+      horizontalAlignmentClass = 'align-start';
   }
 
   return (
     <div
       className={classNames(
-        'flex-row',
+        'flex-column',
         horizontalAlignmentClass,
         verticalAlignmentClass,
         {
@@ -70,13 +70,13 @@ const Row = ({
   )
 }
 
-Row.defaultProps = {
+Column.defaultProps = {
   horizontalAlignment: 'left',
   verticalAlignment: 'center',
   wrap: true
 }
 
-Row.propTypes = {
+Column.propTypes = {
   /**
    * Row content.
    */
@@ -86,7 +86,7 @@ Row.propTypes = {
    */
   horizontalAlignment: PropTypes.oneOf(['center', 'left', 'right', 'space-evenly', 'space-between', 'space-around']),
   /**
-   * Style applied to Row.
+   * Style applied to Column.
    */
   style: PropTypes.object,
   /**
@@ -99,4 +99,4 @@ Row.propTypes = {
   wrap: PropTypes.bool
 }
 
-export default Row;
+export default Column;

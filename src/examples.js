@@ -102,6 +102,23 @@ export const Checkbox = [
   }
 ]
 
+export const Column = [
+  {
+    title: 'Column',
+    props: {
+      children: [<AriInput />, <AriButton>Click</AriButton>, <AriCheckbox />]
+    }
+  },
+  {
+    title: 'Space between',
+    props: {
+      children: [<AriInput />, <AriButton>Click</AriButton>, <AriCheckbox />],
+      verticalAlignment: 'space-between',
+      style: { height: '100vh' }
+    }
+  }
+]
+
 export const Divider = [
   {
     title: 'Horizontal Divider'
