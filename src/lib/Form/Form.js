@@ -33,13 +33,14 @@ const Form = ({
               'ari-ui-form-last-column': direction === 'columns' && idx === content.length - 1
             })}
             key={uniqid()}
+            style={direction === 'columns' ? { maxWidth: columnWidth, width: columnWidth } : {}}
           >
             {group.map(el => React.cloneElement(
               el,
               {
                 ...el.props,
                 key: uniqid(),
-                style: { maxWidth: columnWidth, width: columnWidth }
+                style: direction === 'rows' ? { maxWidth: columnWidth, width: columnWidth } : {}
               }
             ))}
           </div>

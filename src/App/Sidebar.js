@@ -13,6 +13,7 @@ const Sidebar = props => {
 
   return (
     <div id="sidebar">
+      <div className="ari-ui-header-medium">Components</div>
       {renderLinks()}
     </div>
   )

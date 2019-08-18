@@ -12,41 +12,41 @@ const withFlex = (Component, direction) => ({
 
   switch (horizontalAlignment) {
     case 'center':
-      horizontalAlignmentClass = direction === 'row' ? 'justify-center' : 'align-center';
+      horizontalAlignmentClass = direction === 'row' ? 'ari-ui-justify-center' : 'ari-ui-align-center';
       break;
     case 'top':
-      horizontalAlignmentClass = 'align-start';
+      horizontalAlignmentClass = 'ari-ui-align-start';
       break;
     case 'bottom':
-      horizontalAlignmentClass = 'align-end';
+      horizontalAlignmentClass = 'ari-ui-align-end';
       break;
     case 'left':
-      horizontalAlignmentClass = 'justify-start';
+      horizontalAlignmentClass = 'ari-ui-justify-start';
       break;
     case 'right':
-      horizontalAlignmentClass = 'justify-end';
+      horizontalAlignmentClass = 'ari-ui-justify-end';
       break;
     case 'space-evenly':
-      horizontalAlignmentClass = direction === 'row' ? 'justify-even' : 'align-even';
+      horizontalAlignmentClass = direction === 'row' ? 'ari-ui-justify-even' : 'ari-ui-align-even';
       break;
     case 'space-between':
-      horizontalAlignmentClass = direction === 'row' ? 'justify-between' : 'align-between';
+      horizontalAlignmentClass = direction === 'row' ? 'ari-ui-justify-between' : 'ari-ui-align-between';
       break;
     case 'space-around':
-      horizontalAlignmentClass = direction === 'row' ? 'justify-around' : 'align-around';
+      horizontalAlignmentClass = direction === 'row' ? 'ari-ui-justify-around' : 'ari-ui-align-around';
       break;
     default:
-      horizontalAlignmentClass = direction === 'row' ? 'justify-start' : 'align-start';
+      horizontalAlignmentClass = direction === 'row' ? 'ari-ui-justify-start' : 'ari-ui-align-start';
   }
 
   let verticalAlignmentClass;
 
   switch (verticalAlignment) {
     case 'top':
-      verticalAlignmentClass = 'align-start';
+      verticalAlignmentClass = 'ari-ui-align-start';
       break;
     case 'bottom':
-      verticalAlignmentClass = 'align-end';
+      verticalAlignmentClass = 'ari-ui-align-end';
       break;
     case 'left':
       verticalAlignmentClass = 'justify-left';
@@ -55,16 +55,16 @@ const withFlex = (Component, direction) => ({
       verticalAlignmentClass = 'justify-right';
       break;
     case 'space-evenly':
-      verticalAlignmentClass = direction === 'row' ? 'align-even' : 'justify-even';
+      verticalAlignmentClass = direction === 'row' ? 'ari-ui-align-even' : 'ari-ui-justify-even';
       break;
     case 'space-between':
-      verticalAlignmentClass = direction === 'row' ? 'align-between' : 'justify-between';
+      verticalAlignmentClass = direction === 'row' ? 'ari-ui-align-between' : 'ari-ui-justify-between';
       break;
     case 'space-around':
-      verticalAlignmentClass = direction === 'row' ? 'align-around' : 'justify-around';
+      verticalAlignmentClass = direction === 'row' ? 'ari-ui-align-around' : 'ari-ui-justify-around';
       break;
     default:
-      verticalAlignmentClass = direction === 'row' ? 'align-center' : 'justify-start';
+      verticalAlignmentClass = direction === 'row' ? 'ari-ui-align-center' : 'ari-ui-justify-start';
   }
 
   return (
@@ -73,9 +73,9 @@ const withFlex = (Component, direction) => ({
         horizontalAlignmentClass,
         verticalAlignmentClass,
         {
-          'flex-row': direction === 'row',
-          'flex-column': direction === 'column',
-          wrap
+          'ari-ui-flex-row': direction === 'row',
+          'ari-ui-flex-column': direction === 'column',
+          'ari-ui-wrap': wrap
         }
       )}
       style={style}

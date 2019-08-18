@@ -70,7 +70,7 @@
     transform: translateY(0px);
   }
 }
-.calendar-container {
+.ari-ui-calendar-container {
   display: flex;
   flex-direction: column;
   background-color: #000075;
@@ -78,7 +78,7 @@
   border-radius: 3px;
   padding: 5px;
 }
-.calendar-header {
+.ari-ui-calendar-header {
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -86,19 +86,19 @@
   border-bottom: 1px solid;
   padding-bottom: 5px;
 }
-.calendar-navigation-arrow {
+.ari-ui-calendar-navigation-arrow {
   cursor: pointer;
   transition: 0.3s;
 }
-.calendar-navigation-arrow:hover {
+.ari-ui-calendar-navigation-arrow:hover {
   color: #a2a2a2;
 }
-.calendar-body {
+.ari-ui-calendar-body {
   display: grid;
   grid-template-columns: repeat(7, minmax(40px, 5fr));
   justify-items: center;
 }
-.calendar-cell-container {
+.ari-ui-calendar-cell-container {
   width: 100%;
   text-align: right;
   border: 1px solid #a2a2a2;
@@ -106,29 +106,29 @@
   background-color: white;
   color: #000075;
 }
-.calendar-cell-active {
+.ari-ui-calendar-cell-active {
   transition: 0.3s;
   cursor: pointer;
 }
-.calendar-cell-active:hover {
+.ari-ui-calendar-cell-active:hover {
   background-color: #b0d8fd;
 }
-.calendar-cell-selected {
+.ari-ui-calendar-cell-selected {
   background: #b0d8fd;
 }
-.calendar-date-cell {
+.ari-ui-calendar-date-cell {
   margin-right: 5px;
 }
-.calendar-date-cell-inactive {
+.ari-ui-calendar-date-cell-inactive {
   color: #a2a2a2;
 }
-.calendar-event {
+.ari-ui-calendar-event {
   text-align: left;
   font-size: 12px;
   padding-left: 5px;
   transition: 0.3s;
 }
-.calendar-event:hover {
+.ari-ui-calendar-event:hover {
   color: #a2a2a2;
 }
 .ari-ui-card {
@@ -180,11 +180,11 @@
   font-size: 14px;
   transition: 0.3s;
 }
-.flex-column {
+.ari-ui-flex-column {
   display: flex;
   flex-direction: column;
 }
-.flex-column > * {
+.ari-ui-flex-column > * {
   margin-bottom: 16px !important;
 }
 .ari-ui-divider {
@@ -250,27 +250,27 @@
   color: #000075;
   top: calc(50% - 10px);
 }
-.modal-container {
+.ari-ui-modal-container {
   position: absolute;
   height: 100vh;
   width: 100vw;
   top: 0;
   left: 0;
 }
-.modal-overlay {
+.ari-ui-modal-overlay {
   position: absolute;
   z-index: 100;
   height: 100%;
   width: 100%;
   background: rgba(80, 80, 80, 0.4);
 }
-.modal-dialog {
+.ari-ui-modal-dialog {
   display: flex;
   height: 100%;
   justify-content: center;
   align-items: center;
 }
-.modal {
+.ari-ui-modal {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -284,28 +284,28 @@
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
 }
-.modal-header {
+.ari-ui-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px 10px 20px;
 }
-.modal-title {
+.ari-ui-modal-title {
   font-size: 24px;
 }
-.modal-x {
+.ari-ui-modal-x {
   transition: 0.3s;
   color: #b1acac;
 }
-.modal-x:hover {
+.ari-ui-modal-x:hover {
   background-color: #a2a2a2;
   border-radius: 10px;
 }
-.modal-content {
+.ari-ui-modal-content {
   padding: 10px 20px 10px 20px;
   flex: 1;
 }
-.modal-footer {
+.ari-ui-modal-footer {
   padding: 10px 20px 10px 20px;
 }
 @keyframes modal-appear {
@@ -319,12 +319,12 @@
     transform: translateY(0vh);
   }
 }
-.flex-row {
+.ari-ui-flex-row {
   display: flex;
   flex-direction: row;
   margin-bottom: 16px;
 }
-.flex-row > * {
+.ari-ui-flex-row > * {
   margin-right: 16px;
   margin-bottom: 0 !important;
 }
@@ -443,30 +443,30 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-.padded-content {
+.ari-ui-padded-content {
   padding: 10px 20px 10px 20px;
 }
-.flow-right {
+.ari-ui-flow-right {
   display: flex;
   justify-content: flex-end;
 }
-.form-field {
+.ari-ui-form-field {
   border: 1px solid #000075;
   font-size: 14px;
   transition: 0.3s;
 }
-.text-box {
+.ari-ui-text-box {
   border: 1px solid #000075;
   font-size: 14px;
   transition: 0.3s;
   padding-left: 12px;
 }
-.text-box-focused {
+.ari-ui-text-box-focused {
   outline: none;
   border: none;
   box-shadow: 0px 0px 10px 1px #000075;
 }
-.slide-down {
+.ari-ui-slide-down {
   animation-name: slide-down;
   animation-duration: 0.3s;
   animation-timing-function: ease-out;
@@ -481,42 +481,45 @@ code {
     opacity: 1;
   }
 }
-.justify-center {
+.ari-ui-justify-center {
   justify-content: center;
 }
-.justify-start {
+.ari-ui-justify-start {
   justify-content: flex-start;
 }
-.justify-end {
+.ari-ui-justify-end {
   justify-content: flex-end;
 }
-.justify-even {
+.ari-ui-justify-even {
   justify-content: space-evenly;
 }
-.justify-between {
+.ari-ui-justify-between {
   justify-content: space-between;
 }
-.justify-around {
+.ari-ui-justify-around {
   justify-content: space-around;
 }
-.align-center {
+.ari-ui-align-center {
   align-items: center;
 }
-.align-start {
+.ari-ui-align-start {
   align-items: flex-start;
 }
-.align-end {
+.ari-ui-align-end {
   align-items: flex-end;
 }
-.align-even {
+.ari-ui-align-even {
   align-items: space-evenly;
 }
-.align-between {
+.ari-ui-align-between {
   align-items: space-between;
 }
-.align-around {
+.ari-ui-align-around {
   align-items: space-around;
 }
-.wrap {
+.ari-ui-wrap {
   flex-wrap: wrap;
+}
+.ari-ui-header-medium {
+  font-size: 20px;
 }

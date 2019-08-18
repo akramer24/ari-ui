@@ -47,38 +47,38 @@ const Calendar = (props) => {
 
   return (
     <React.Fragment>
-      <div className="calendar-container" style={{ maxWidth }}>
-        <div className="calendar-header">
-          <div className="calendar-navigation-container">
+      <div className="ari-ui-calendar-container" style={{ maxWidth }}>
+        <div className="ari-ui-calendar-header">
+          <div className="ari-ui-calendar-navigation-container">
             <FaAngleDoubleLeft
-              className="calendar-navigation-arrow"
+              className="ari-ui-calendar-navigation-arrow"
               onClick={() => changeYear(monthIdx, year, setYear, 'retreat', onPanelChange)}
             />
             <FaAngleLeft
-              className="calendar-navigation-arrow"
+              className="ari-ui-calendar-navigation-arrow"
               onClick={() => changeMonth(monthIdx, year, setMonthIdx, setYear, 'retreat', onPanelChange)}
             />
           </div>
-          <div className="calendar-header-month">{`${month} ${year}`}</div>
-          <div className="calendar-navigation-container">
+          <div className="ari-ui-calendar-header-month">{`${month} ${year}`}</div>
+          <div className="ari-ui-calendar-navigation-container">
             <FaAngleRight
-              className="calendar-navigation-arrow"
+              className="ari-ui-calendar-navigation-arrow"
               onClick={() => changeMonth(monthIdx, year, setMonthIdx, setYear, 'advance', onPanelChange)}
             />
             <FaAngleDoubleRight
-              className="calendar-navigation-arrow"
+              className="ari-ui-calendar-navigation-arrow"
               onClick={() => changeYear(monthIdx, year, setYear, 'advance', onPanelChange)}
             />
           </div>
         </div>
-        <div className="calendar-body">
-          <div className="calendar-header-cell calendar-cell">Sun</div>
-          <div className="calendar-header-cell calendar-cell">Mon</div>
-          <div className="calendar-header-cell calendar-cell">Tue</div>
-          <div className="calendar-header-cell calendar-cell">Wed</div>
-          <div className="calendar-header-cell calendar-cell">Thu</div>
-          <div className="calendar-header-cell calendar-cell">Fri</div>
-          <div className="calendar-header-cell calendar-cell">Sat</div>
+        <div className="ari-ui-calendar-body">
+          <div className="ari-ui-calendar-header-cell ari-ui-calendar-cell">Sun</div>
+          <div className="ari-ui-calendar-header-cell ari-ui-calendar-cell">Mon</div>
+          <div className="ari-ui-calendar-header-cell ari-ui-calendar-cell">Tue</div>
+          <div className="ari-ui-calendar-header-cell ari-ui-calendar-cell">Wed</div>
+          <div className="ari-ui-calendar-header-cell ari-ui-calendar-cell">Thu</div>
+          <div className="ari-ui-calendar-header-cell ari-ui-calendar-cell">Fri</div>
+          <div className="ari-ui-calendar-header-cell ari-ui-calendar-cell">Sat</div>
           {
             [...Array(42).keys()].map(i => {
               const isDateInActiveMonth = i >= firstDayIndex && i < firstDayIndex + totalDaysInMonth;
@@ -94,31 +94,31 @@ const Calendar = (props) => {
                 <div
                   key={`${month}-${i}`}
                   className={classNames(
-                    'calendar-cell-container',
+                    'ari-ui-calendar-cell-container',
                     {
-                      'calendar-cell-active': isDateInActiveMonth,
-                      'calendar-cell-selected': i === selectedDateIndex && selectedDate.month() === monthIdx
+                      'ari-ui-calendar-cell-active': isDateInActiveMonth,
+                      'ari-ui-calendar-cell-selected': i === selectedDateIndex && selectedDate.month() === monthIdx
                     }
                   )}
                   onClick={() => handleDateSelect(date, month, year, i, setSelectedDate, setSelectedDateIndex, setIsModalVisible)}
                 >
                   <div
                     className={classNames(
-                      'calendar-date-cell',
-                      'calendar-cell',
+                      'ari-ui-calendar-date-cell',
+                      'ari-ui-calendar-cell',
                       {
-                        'calendar-date-cell-inactive': !isDateInActiveMonth
+                        'ari-ui-calendar-date-cell-inactive': !isDateInActiveMonth
                       }
                     )}
                   >
                     {date}
                   </div>
-                  <div className="calendar-events-container">
+                  <div className="ari-ui-calendar-events-container">
                     {
                       dateEvents && dateEvents.map((event, idx) => (
                         <div
                           key={`${formattedDate}-${idx}`}
-                          className="calendar-event"
+                          className="ari-ui-calendar-event"
                           onClick={() => setSelectedEvent(event)}
                         >
                           &bull; {event.event}

@@ -9,7 +9,7 @@ const ModalExample = props => {
     <div>
       <Modal
         footer={
-          <div className="flow-right">
+          <div className="ari-ui-flow-right">
             <Button style={{ marginRight: 5 }} kind="danger">Cancel</Button>
             <Button kind="primary">Save</Button>
           </div>

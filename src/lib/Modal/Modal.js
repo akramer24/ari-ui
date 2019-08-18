@@ -40,23 +40,23 @@ class Modal extends Component {
 
     if (visible) {
       return ReactDOM.createPortal(
-        <div className="modal-container">
-          <div className="modal-overlay" onClick={clickMaskToClose ? onClose : () => { }} />
-          <div className="modal-dialog">
-            <div className={classNames('modal', { [className]: className })} id={id} style={{ width }}>
-              <div className="modal-header">
-                <span className="modal-title">{title && title}</span>
-                {closeable && <FaTimes className="modal-x" onClick={onClose} />}
+        <div className="ari-ui-modal-container">
+          <div className="ari-ui-modal-overlay" onClick={clickMaskToClose ? onClose : () => { }} />
+          <div className="ari-ui-modal-dialog">
+            <div className={classNames('ari-ui-modal', { [className]: className })} id={id} style={{ width }}>
+              <div className="ari-ui-modal-header">
+                <span className="ari-ui-modal-title">{title && title}</span>
+                {closeable && <FaTimes className="ari-ui-modal-x" onClick={onClose} />}
               </div>
               {title && <Divider />}
-              <div className="modal-content">
+              <div className="ari-ui-modal-content">
                 {children}
               </div>
               {footer && <Divider />}
               {
                 footer
                   ? (
-                    <div className="modal-footer">
+                    <div className="ari-ui-modal-footer">
                       {footer}
                     </div>
                   )
