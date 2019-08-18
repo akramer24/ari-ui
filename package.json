@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
+    "del-cli": "^2.0.0",
     "history": "^4.9.0",
     "less": "^3.9.0",
     "less-watch-compiler": "^1.13.0",
@@ -16,13 +17,28 @@
     "react-scripts": "3.0.1",
     "uniqid": "^5.0.3"
   },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "10.0.1",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "8.0.5",
+    "babel-plugin-named-asset-import": "^0.3.2",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.19",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-app": "^9.0.0",
+    "babel-preset-stage-1": "^6.24.1"
+  },
   "scripts": {
     "start": "react-scripts start & yarn run watch-css",
     "build": "yarn build-css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-css": "lessc src/index.less src/index.css",
-    "watch-css": "less-watch-compiler src src index.less"
+    "watch-css": "less-watch-compiler src src index.less",
+    "del-dist": "del-cli dist",
+    "build-dist-css": "lessc --js src/index.less dist/index.css",
+    "build-dist": "yarn del-dist && npx babel --no-babelrc src/lib -d dist --presets=env,stage-1,react --ignore **/__tests__ && yarn build-dist-css"
   },
   "eslintConfig": {
     "extends": "react-app"
