@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { configure, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Card from '../Card/Card';
+import Card from '../Card';
 
 configure({ adapter: new Adapter() });
 

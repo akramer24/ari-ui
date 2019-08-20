@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { configure, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Button from '../Button/Button';
+import Button from '../Button';
 
 configure({ adapter: new Adapter() });
 
