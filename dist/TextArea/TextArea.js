@@ -16,7 +16,7 @@ var _classnames2 = _interopRequireDefault(_classnames);
 
 var _lodash = require('lodash');
 
-var _withForm = require('../../hocs/withForm');
+var _withForm = require('../hocs/withForm');
 
 var _withForm2 = _interopRequireDefault(_withForm);
 

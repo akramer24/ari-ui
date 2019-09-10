@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import withFlex from '../../hocs/withFlex';
+import withFlex from '../hocs/withFlex';
 
 const Column = ({ children, className, style }) =>
   <div

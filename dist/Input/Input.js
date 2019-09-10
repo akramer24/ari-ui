@@ -21,7 +21,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _lodash = require('lodash');
 
-var _withForm = require('../../hocs/withForm');
+var _withForm = require('../hocs/withForm');
 
 var _withForm2 = _interopRequireDefault(_withForm);
 

@@ -12,7 +12,7 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _withFlex = require('../../hocs/withFlex');
+var _withFlex = require('../hocs/withFlex');
 
 var _withFlex2 = _interopRequireDefault(_withFlex);
 

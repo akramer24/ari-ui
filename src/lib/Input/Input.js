@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { omitBy, isUndefined } from 'lodash';
-import withForm from '../../hocs/withForm';
+import withForm from '../hocs/withForm';
 
 const Input = React.forwardRef(({
   autoFocus,

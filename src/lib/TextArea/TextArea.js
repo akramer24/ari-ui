@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { omitBy, isUndefined } from 'lodash';
-import withForm from '../../hocs/withForm';
+import withForm from '../hocs/withForm';
 
 const TextArea = ({
   name,

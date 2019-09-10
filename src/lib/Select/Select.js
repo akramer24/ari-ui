@@ -5,7 +5,7 @@ import {
 } from 'react-icons/fa';
 import uniqid from 'uniqid';
 import classNames from 'classnames';
-import withForm from '../../hocs/withForm';
+import withForm from '../hocs/withForm';
 import { Input } from '../Input/Input';
 import Dropdown from './Dropdown';
 

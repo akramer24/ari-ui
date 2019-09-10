@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import withFlex from '../../hocs/withFlex';
+import withFlex from '../hocs/withFlex';
 
 const Row = ({ children, className, style }) =>
   <div

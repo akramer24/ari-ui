@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { omitBy, isUndefined } from 'lodash';
 import PropTypes from 'prop-types';
-import withForm from '../../hocs/withForm';
+import withForm from '../hocs/withForm';
 
 const Checkbox = ({
   autoFocus,
