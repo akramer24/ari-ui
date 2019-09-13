@@ -138,6 +138,7 @@ var Select = function (_React$Component) {
         dropdown.scrollTop = 0;
       }
       this.setState(newState);
+      this.props.onChange && this.props.onChange(evt);
     }
   }, {
     key: 'handleInputKeyDown',
