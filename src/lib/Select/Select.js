@@ -90,6 +90,7 @@ class Select extends React.Component {
       dropdown.scrollTop = 0;
     }
     this.setState(newState);
+    this.props.onChange && this.props.onChange(evt);
   }
 
   handleInputKeyDown(evt) {

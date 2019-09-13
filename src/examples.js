@@ -158,6 +158,7 @@ export const Input = [
       placeholder: 'Type here...',
       label: 'Input 1',
       labelPosition: 'left',
+      onChange: evt => console.log(evt.target.value)
     }
   },
   {
