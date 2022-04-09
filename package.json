@@ -9,7 +9,7 @@
     "less": "^3.9.0",
     "less-watch-compiler": "^1.13.0",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-icons": "^3.7.0",
